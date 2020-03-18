@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1b7b8df9-2a27-47df-9080-c199b608725e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideInfoMessages" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+    <option name="HIDE_INFO_MESSAGES" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1RciVVDyzf5LVsZXfiZ1m2JUiry" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../10th Grade - Sophomore Year/AP Computer Science A/AP Computer Science" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="usaco.real.sophomore.december" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shourya.bansal\OneDrive - Livingston Public Schools\USACO\USACO" />
+      <recent name="C:\Users\shourya.bansal\OneDrive - Livingston Public Schools\USACO\USACO\src" />
+      <recent name="C:\Users\shourya.bansal\OneDrive - Livingston Public Schools\USACO\USACO\src\oldFiles" />
+      <recent name="C:\Users\shour\OneDrive - Livingston Public Schools\USACO\USACO\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.milk2">
+    <configuration name="CowGymnastics (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CowGymnastics" />
+      <module name="USACO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CowGymnastics" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="usaco.real.sophomore.december.CowGymnastics" />
+      <module name="USACO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="usaco.real.sophomore.december.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LivestockLineup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="usaco.real.sophomore.december.LivestockLineup" />
+      <module name="USACO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="usaco.real.sophomore.december.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WhereAmI2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WhereAmI2" />
+      <module name="USACO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="milk2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="usaco.practice.training.chapter1.section3.milk2" />
+      <module name="USACO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="usaco.practice.training.chapter1.section3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.milk2" />
+        <item itemvalue="Application.CowGymnastics (1)" />
+        <item itemvalue="Application.CowGymnastics" />
+        <item itemvalue="Application.LivestockLineup" />
+        <item itemvalue="Application.WhereAmI2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b7b8df9-2a27-47df-9080-c199b608725e" name="Default Changelist" comment="" />
+      <created>1569972808418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569972808418</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576451224185">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1576451224185" />
+    <state x="443" y="233" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1576449578750">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="443" y="233" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1576449578750" />
+    <state x="534" y="252" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576449480823">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="534" y="252" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1576449480823" />
+    <state x="399" y="73" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1576460588694">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="399" y="73" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1366.728@0.0.1366.728" timestamp="1576460588694" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1576449573589">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1576449573589" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1576610336121">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1576610336121" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1576610336121">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1576610336121" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1576610336120">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1576610336120" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1576610336121">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1576610336121" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1576451844964">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1576451844964" />
+    <state x="384" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1576678992971">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="384" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1576678992971" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1576453917172">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1576453917172" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1576461369755">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1576461369755" />
+  </component>
+</project>
