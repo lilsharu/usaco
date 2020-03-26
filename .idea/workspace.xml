@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b7b8df9-2a27-47df-9080-c199b608725e" name="Default Changelist" comment="" />
+    <list default="true" id="1b7b8df9-2a27-47df-9080-c199b608725e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usaco/real/sophomore/february/MadScientist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usaco/real/sophomore/february/SwapitySwap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/usaco/real/sophomore/february/Triangles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +27,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RciVVDyzf5LVsZXfiZ1m2JUiry" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -28,7 +41,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../10th Grade - Sophomore Year/AP Computer Science A/AP Computer Science" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -131,30 +147,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569972808418</updated>
+      <workItem from="1585181397528" duration="226000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576451224185">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="490" y="234" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585181494595">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1576451224185" />
-    <state x="443" y="233" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1576449578750">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="490" y="234" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.689/1920.0.1366.738@0.0.1280.689" timestamp="1585181494595" />
+    <state x="461" y="36" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1585181551224">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="443" y="233" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1576449578750" />
-    <state x="534" y="252" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576449480823">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="461" y="36" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1280.689/1920.0.1366.738@0.0.1280.689" timestamp="1585181551224" />
+    <state x="219" y="0" key="CommitChangelistDialog2" timestamp="1585181638661">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="534" y="252" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1576449480823" />
-    <state x="399" y="73" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1576460588694">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="399" y="73" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1366.728@0.0.1366.728" timestamp="1576460588694" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1576449573589">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1576449573589" />
+    <state x="219" y="0" key="CommitChangelistDialog2/0.0.1280.689/1920.0.1366.738@0.0.1280.689" timestamp="1585181638661" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1576610336121">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -171,21 +183,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1576610336121" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1576451844964">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1576451844964" />
     <state x="384" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1576678992971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="384" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1576678992971" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1576453917172">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="303" y="10" key="search.everywhere.popup" timestamp="1585181554346">
+      <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1576453917172" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1576461369755">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1576461369755" />
+    <state x="303" y="10" key="search.everywhere.popup/0.0.1280.689/1920.0.1366.738@0.0.1280.689" timestamp="1585181554346" />
   </component>
 </project>
