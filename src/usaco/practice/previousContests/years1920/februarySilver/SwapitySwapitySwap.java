@@ -1,8 +1,5 @@
-package usaco.practice.previousContests.years1920.februarySilver;
-
 import java.io.*;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * Farmer John's N cows (1≤N≤105) are standing in a line. The ith cow from the left has label i for each 1≤i≤N.
