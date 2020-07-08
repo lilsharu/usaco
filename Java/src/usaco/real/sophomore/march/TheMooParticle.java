@@ -1,8 +1,5 @@
 package usaco.real.sophomore.march;
 
-import java.util.*;
-import java.io.*;
-
 public class TheMooParticle {
     static Particle[] p;
     static int remaining;

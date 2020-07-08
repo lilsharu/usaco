@@ -1,6 +1,3 @@
-import java.util.*;
-import java.io.*;
-
 public class CerealBruteForce {
     public static void main(String[] args) throws IOException {
         BufferedReader read = new BufferedReader(new FileReader("cereal.in"));

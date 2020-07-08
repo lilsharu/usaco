@@ -1,8 +1,4 @@
 package usaco.real.sophomore.march;
-import java.util.*;
-import java.io.*;
-
-
 public class SocialDistancing {
     public static void main(String[] args) throws IOException {
         BufferedReader read = new BufferedReader(new FileReader("socdist.in"));

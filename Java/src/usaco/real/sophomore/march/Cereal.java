@@ -1,8 +1,5 @@
 package usaco.real.sophomore.march;
 
-import java.io.*;
-import java.util.*;
-
 public class Cereal {
     static Cow[] cows;
     public static void main(String[] args) throws IOException {
