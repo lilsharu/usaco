@@ -19,7 +19,7 @@ int main() {
         int size;
         cin >> size;
         int person = *a.upper_bound(size - k - 1);
-        if (person > size - k && person < size + k) {
+        if (size >= person - k && size <= person + k) {
             a.erase(person);
             count++;
         }
