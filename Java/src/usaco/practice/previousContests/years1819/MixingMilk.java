@@ -22,6 +22,8 @@ public class MixingMilk {
             max[i] = Integer.parseInt(st.nextToken());
             current[i] = Integer.parseInt(st.nextToken());
         }
+
+        read.close();
         
         for (int i = 0; i < 100; i++) {
             if (cp == 0) pcp = 2;
