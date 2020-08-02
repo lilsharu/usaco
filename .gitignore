@@ -3,4 +3,5 @@ Java/out/*
 Java/build/*
 Java/nbproject/*
 
-CPP/**/*.out
+*.in
+*.out
