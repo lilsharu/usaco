@@ -25,6 +25,8 @@ bool comp(int a, int b) {
 int n;
 change cows[MAX_N];
 
+//10/10! NICE!
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
