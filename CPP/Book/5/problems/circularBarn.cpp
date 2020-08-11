@@ -7,6 +7,7 @@ const int MAX_N = 1000;
 int n;
 vector<int> r;
 
+//Solved 10/10
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
