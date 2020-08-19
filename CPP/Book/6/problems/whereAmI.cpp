@@ -5,23 +5,6 @@ using namespace std;
 int n;
 string road;
 
-bool hasMore(string sub) {
-    int len = sub.length();
-
-    int count = -1;
-    
-    for (int i = 0; i < road.length() - len + 1; i++) {
-        if (road.substr(i, len) == sub) {
-            count++;
-        }
-
-        if (count > 0) {
-            return true;
-        }
-    }
-
-    return false;
-}
 
 int main() {
     ios::sync_with_stdio(false);
@@ -31,15 +14,19 @@ int main() {
     
     cin >> n >> road;
 
-    int minMax = 1;
-
-    for (int i = 0; i < n; i++) {
-        for (int k = i + minMax; k <= n; k++) {
-            if (hasMore(road.substr(i, k))) {
-                minMax = k - i;
+    for (int i = 1; i <= n; i++) {
+        bool good = true;
+        for (int j = 0; j + i <= n; j++) {
+            for (int k = 0; k < j; k++) {
+                if (road.substr(j, i) == road.substr(k, i)) {
+                    good = false;
+                }
             }
         }
-    }
 
-    cout << minMax + 1 << '\n';
+        if (good) {
+            cout << i << '\n';
+            break;
+        }
+    }
 }
