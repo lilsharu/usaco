@@ -2,13 +2,18 @@
 
 using namespace std;
 
-struct constraint {
-    string a, b;
-};
 
 int n;
-constraint c[7];
-string cows[] = {"Bessie", "Buttercup", "Belinda", "Beatrice", "Bella", "Blue", "Betsy", "Sue"};
+vector<string> cows, beside_a, beside_b;
+
+int where(string s) {
+    for(int i = 0; i < 8; i++) {
+        if (cows[i] == s) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 int main() {
     ios::sync_with_stdio(false);
@@ -16,20 +21,39 @@ int main() {
     freopen("lineup.in", "r", stdin);
     freopen("lineup.out", "w", stdout);
 
+    cows.push_back("Beatrice");
+    cows.push_back("Sue");
+    cows.push_back("Belinda");
+    cows.push_back("Bessie");
+    cows.push_back("Betsy");
+    cows.push_back("Blue");
+    cows.push_back("Bella");
+    cows.push_back("Buttercup");
+    sort(cows.begin(), cows.end());
+
     cin >> n;
+
+    string* trash = new string;
+    string* a = new string;
+    string* b = new string;
     for (int i = 0; i < n; i++) {
-        string* trash = new string;
-        cin >> c[i].a >> *trash >> *trash >> *trash >> *trash >> c[i].b;
-        delete trash;
+        cin >> *a;
+        cin >> *trash; //must
+        cin >> *trash; //be
+        cin >> *trash; //milked
+        cin >> *trash; //beside
+        cin >> *b;
+        beside_a.push_back(*a);
+        beside_b.push_back(*b);
     }
+    delete trash;
+    delete a;
+    delete b;
 
     do {
         bool works = true;
         for (int i = 0; i < n; i++) {
-            cout << c[i].a;
-            cout << cows->find(c[i].a);
-            cout << cows[cows->find(c[i].a)] << '\n';
-            if (cows[cows->find(c[i].a) - 1] != c[i].b || cows[cows->find(c[i].a) + 1] != c[i].b) {
+            if (abs(where(beside_a[i]) - where(beside_b[i])) != 1) {
                 works = false;
                 break;
             }
@@ -39,7 +63,7 @@ int main() {
             break;
         }
 
-    } while (next_permutation(cows, cows + n));
+    } while (next_permutation(cows.begin(), cows.end()));
 
     for (int i = 0; i < 8; i++) {
         cout << cows[i] << '\n';
