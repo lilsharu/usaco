@@ -9,7 +9,10 @@ int tx1, tx2, ty1, ty2;
 int maxArea, obscured;
 
 int rectArea(int x1, int y1, int x2, int y2) {
-    return abs(x2 - x1) * abs(y2 - y1);
+    int xDiff = (x2 - x1);
+    int yDiff = (y2 - y1);
+
+    return xDiff < 0 || yDiff < 0 ? -1 : xDiff * yDiff;
 }
 
 int main() {
@@ -33,8 +36,11 @@ int main() {
     int maxY2 = min(by2, ty2);
     int minX2 = max(bx1, tx1);
     int maxX2 = min(bx2, tx2);
-
-    obscured = rectArea(minX1, minY1, maxX1, maxY1) + rectArea(minX2, minY2, maxX2, maxY2);
+    
+    int tempRectArea = rectArea(minX1, minY1, maxX1, maxY1);
+    obscured += tempRectArea > 0 ? tempRectArea : 0;
+    tempRectArea = rectArea(minX2, minY2, maxX2, maxY2);
+    obscured += tempRectArea > 0 ? tempRectArea : 0;
     
     cout << maxArea - obscured << '\n';
 
