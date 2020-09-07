@@ -56,6 +56,8 @@ int main() {
 
     tuesday(1000, b1, b2);
 
+    
+
     answer = 0;
     for (int i = 0; i < 2000; i++) {
         answer += possible_answers[i];
