@@ -12,7 +12,7 @@ struct mountain {
 
         double slope = ((double)(y - b.y))/(x - b.x);
 
-        return abs(slope) <= 1;
+        return abs(slope) >= 1;
     }
 };
 
