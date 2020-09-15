@@ -13,18 +13,19 @@ int main() {
     int l, n, rf, rb;
     cin >> l >> n >> rf >> rb;
 
-    int maxTastiness = 0, pf, pb;
+    int maxTastiness = 0, pf = 0, pb = 0;
     
     for (int i = 0; i < n; i++) {
         int pos, taste;
         cin >> pos >> taste;
 
         int secs = (pos - pb) * rb;
-        int secsToGo = (pos - (pf + (int)((double)secs/rf + 0.5))) * rf;
+        int distanceForFarmer = pos - pf;
+        int secsToGo = distanceForFarmer * rf - secs;
 
-        maxTastiness += secsToGo * taste;
+        maxTastiness += (int) secsToGo * taste;
 
-        pf = pos, pb = pos;
+        pf += distanceForFarmer, pb = pos;
     }
 
     cout << maxTastiness << '\n';
