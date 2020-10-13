@@ -18,10 +18,10 @@ struct barn
 int n, m;
 int current = 0;
 
-barn barns[4];
-vector<barn *> adj[4];
+barn barns[3000];
+vector<barn *> adj[3000];
 set<barn> opened;
-bool visited[4][4];
+bool visited[3000][3000];
 
 void dfs(int node)
 {
@@ -61,9 +61,10 @@ int main()
     }
 
     int toClose;
-loop:
+    
     for (int i = 0; i < n; i++)
     {
+        bool done = false;
         if (i != 0)
         {
             cin >> toClose;
@@ -80,11 +81,10 @@ loop:
             if (barns[j].isOpen && !visited[i][barns[j].pos])
             {
                 cout << "NO" << '\n';
-                goto loop;
+                done = true;
             }
         }
-
-        cout << "YES" << '\n';
+        if (!done) cout << "YES" << '\n';
     }
 
     return 0;
