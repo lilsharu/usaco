@@ -51,5 +51,20 @@ int main() {
         adj[a].pb(b);
         adj[b].pb(a);
     }
+    FOR(i, 1, n + 1) {
+        if (!comp[i]) {
+            num++;
+            dfs(i); 
+        }
+    }
+    FOR(i, 1, n + 1) {
+        int a, b;
+        char c;
+        cin >> a >> b >> c;
 
+        if (chars[a] == c || comp[a] != comp[b]) cout << '1';
+        else cout << '0';        
+    }
+    cout << '\n';
+    return 0;
 }
