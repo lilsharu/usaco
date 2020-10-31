@@ -12,7 +12,7 @@ typedef vector<int> vi;
 #define pb push_back
 #define all(x) begin(x), end(x)
 
-int N, Q, prefix[3][10];
+int N, Q, prefix[3][100001];
 
 void setIO(string name) {
     ios_base::sync_with_stdio(0);
