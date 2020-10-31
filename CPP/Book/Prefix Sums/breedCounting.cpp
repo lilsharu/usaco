@@ -42,9 +42,8 @@ int main() {
     for (int i = 0; i < Q; i++) {
         int a, b;
         cin >> a >> b;
-        for (auto c : prefix) {
-            cout << c[b] - c[a - 1] << ' ';
-        }
-        cout << '\n';
+        cout << prefix[0][b] - prefix[0][a - 1] << ' ';
+        cout << prefix[1][b] - prefix[1][a - 1] << ' ';
+        cout << prefix[2][b] - prefix[2][a - 1] << '\n';
     }
 }
