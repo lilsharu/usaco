@@ -54,10 +54,15 @@ int main() {
     int games = 0;
     
     FOR(i, 1, n + 1) {
-        int maxA = max(s[i], max(p[i], h[i]));
-        int maxB = max(s[n] - s[i - 1], max(p[n] - p[i - 1], h[n] - h[i - 1]));
-
-        games = max(games, maxA + maxB);
+        auto update = [&] (int a[], int b[]) {
+            games = max(games, a[i] + b[n] - b[i]);
+        };
+        update(h, p);
+        update(h, s);
+        update(p, s);
+        update(p, h);
+        update(s, h);
+        update(s, p);
     }
 
     cout << games << endl;
