@@ -22,7 +22,7 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
-
+// 11 / 11
 int main() {
     setIO("maxcross");
     
@@ -57,9 +57,9 @@ int main() {
 
     int minFix = K;
     
-    FOR(i, 1, N + 1) {
+    FOR(i, 1, N - K + 1) {
         int sum = 0, p = i + K - 1;
-         bool w = true;
+        bool w = true;
         while(p >= i) {
             if (working[p]) {
                 p -= working[p];
