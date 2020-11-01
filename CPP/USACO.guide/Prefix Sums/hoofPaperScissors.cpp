@@ -22,6 +22,7 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
+// 10 / 10
 int main() {
     setIO("hps");
     
