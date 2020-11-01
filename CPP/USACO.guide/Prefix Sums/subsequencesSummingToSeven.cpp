@@ -17,7 +17,7 @@ const int MX = 1000005;
 int n;
 int prefix[MX];
 set<int> ids = {0};
-map<int, int> index;
+map<int, int> pos;
 
 void setIO(string name) {
     ios_base::sync_with_stdio(0);
@@ -39,11 +39,11 @@ int main() {
         prefix[i + 1] = (prefix[i] + val) % 7;
 
         if (ids.count(prefix[i + 1])) {
-            int distance = (i - index[prefix[i + 1]]);
+            int distance = (i - pos[prefix[i + 1]]);
             maxLen = max(maxLen, distance);
         } else {
             ids.insert(prefix[i + 1]);
-            index[prefix[i + 1]] = i;
+            pos[prefix[i + 1]] = i;
         }
     }
 
