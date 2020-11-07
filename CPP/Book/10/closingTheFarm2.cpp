@@ -7,9 +7,6 @@ using namespace std;
 int n, m;
 
 vector<int> adj[3000];
-vector<int> removed;
-
-bool visited[3000][3000][3000];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -28,6 +25,7 @@ int main() {
 
     int toRemove;
     for (int i = 0; i < n; i++) {
+        if (i != 0)
         cin >> toRemove;
 
         bool connected = true;
