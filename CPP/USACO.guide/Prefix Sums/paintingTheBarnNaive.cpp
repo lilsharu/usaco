@@ -26,6 +26,7 @@ int N, K;
 
 int barn[1001][1001];
 
+// Scores 3/10
 int main() {
     setIO("paintbarn");
     cin >> N >> K;
