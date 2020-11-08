@@ -38,7 +38,7 @@ int main() {
         while (sum > m && l < r) {
             sum -= arr[l++];
         }
-        sol = max(sol, r - l + 1);
+        sol = arr[r] <= m ? max(sol, r - l + 1) : sol;
     }
 
     cout << sol << endl;
