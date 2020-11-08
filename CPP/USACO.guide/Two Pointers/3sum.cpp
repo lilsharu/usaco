@@ -34,7 +34,7 @@ int main() {
     ll n, x;
     cin >> n >> x;
 
-    vector<val>arr(n);
+    vector<val> arr(n);
 
     F0R(i, n) {
         cin >> arr[i].val;
@@ -43,24 +43,22 @@ int main() {
 
     sort(arr.begin(), arr.end(), comp);
 
-    int l = 0, r = n - 1;
-    
-    while (l < r) {
-        int sum = arr[l].val + arr[r].val;
-        if (sum <= x) {
-            for (int i = 0; i < n; i++) {
-                if (i == l || i == r) continue;
-                if (sum + arr[i].val == x) {
-                    cout  << arr[l].id << ' ' << arr[r].id << ' ' << arr[i].id << endl;
-                    return 0;
-                }
+    for (ll i = 0; i < n; i++) {
+        ll j = i + 1;
+        ll k = n - 1;
+        while (j < k) {
+            ll sum = arr[i].val + arr[j].val + arr[k].val;
+            if (sum == x) {
+                cout << arr[i].id << ' ' << arr[j].id << ' ' << arr[k].id << endl;
+                return 0;
+            } else if (sum < x) {
+                j++;
+            } else {
+                k--;
             }
-
-            l++;
-        } else {
-            r--;
         }
     }
+
 
     cout << "IMPOSSIBLE" << endl;
     return 0;
