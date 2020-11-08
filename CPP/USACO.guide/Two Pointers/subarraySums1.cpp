@@ -15,13 +15,6 @@ typedef long long ll;
 
 #define endl '\n';
 
-void setIO(string name) {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    freopen((name + ".in").c_str(), "r", stdin);
-    freopen((name + ".out").c_str(), "w", stdout);
-}
-
 // CSES 1660
 int main() {
     int n, x;
@@ -33,11 +26,11 @@ int main() {
         cin >> vals[i];
     }
 
-    int count = 0, l = 1, r = 1, sum = vals[0];
+    int count = 0, l = 0, r = 0, sum = 0;
 
     for (r = 0; r < n; r++) {
         sum += vals[r];
-        while (sum < x && l < r) {
+        while (sum > x && l < r) {
             sum -= vals[l++];
         }
 
