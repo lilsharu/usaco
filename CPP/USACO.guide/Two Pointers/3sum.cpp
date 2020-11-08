@@ -38,7 +38,7 @@ int main() {
 
     F0R(i, n) {
         cin >> arr[i].val;
-        arr[i].id = i;
+        arr[i].id = i + 1;
     }
 
     sort(arr.begin(), arr.end(), comp);
@@ -55,6 +55,10 @@ int main() {
                     return 0;
                 }
             }
+
+            l++;
+        } else {
+            r--;
         }
     }
 
