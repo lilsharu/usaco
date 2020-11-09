@@ -35,6 +35,7 @@ bool comp(const val& a, const val& b) {
     return a.v < b.v;
 }
 
+// 10/10
 int main() {
     setIO("pairup");
     
@@ -55,10 +56,11 @@ int main() {
     for (int i = 0; i < n/2; i++) {
         int val = arr[i].v + arr[j].v;
         sol = max(sol, val);
-        arr[i].a--;
-        arr[j].a--;
+        int subtract = min(arr[i].a, arr[j].a);
+        arr[i].a -= subtract;
+        arr[j].a -= subtract;
         if (arr[i].a > 0) i--;
-        if (arr[j].a == 0) j--;
+        if (arr[j].a <= 0) j--;
     }
 
     cout << sol << endl;
