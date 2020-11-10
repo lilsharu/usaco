@@ -52,13 +52,14 @@ int main() {
         towers.erase(temp, towers.end());
     }
 
-    int t = 0, tmin = 0;
+    int t = 0;
     int sol = -1;
     F0R(c, n) {
-        t = tmin;
         int cDist = dist(cities[c], towers[t]);
-        while (t + 1 < m && dist(cities[c], towers[t + 1]) < cDist) cDist = dist(cities[c], towers[t++]);
-        tmin = t;
+
+        while (t + 1 < m && dist(cities[c], towers[t + 1]) < cDist) {
+            cDist = dist(cities[c], towers[++t]);   
+        }
 
         sol = max(sol, cDist);
     }
