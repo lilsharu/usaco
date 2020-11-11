@@ -54,11 +54,12 @@ int main() {
 
     int t = 0;
     int sol = -1;
-    F0R(c, n) {
-        int cDist = dist(cities[c], towers[t]);
+    m = towers.size();
+    trav(c, cities) {
+        int cDist = dist(c, towers[t]);
 
-        while (t + 1 < m && dist(cities[c], towers[t + 1]) < cDist) {
-            cDist = dist(cities[c], towers[++t]);   
+        while (t + 1 < m && dist(c, towers[t + 1]) < cDist) {
+            cDist = dist(c, towers[++t]);   
         }
 
         sol = max(sol, cDist);
