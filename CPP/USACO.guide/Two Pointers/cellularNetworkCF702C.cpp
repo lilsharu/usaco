@@ -26,6 +26,8 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
+// Accepted
+
 int main() {
     int n, m;
     cin >> n >> m;
