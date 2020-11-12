@@ -25,14 +25,14 @@ void setIO(string name) {
 }
 
 int main() {
-    int a, b, c, m;
+    ll a, b, c, m;
     cin >> a >> b >> c >> m;
 
-    vi usb;
-    vi ps2;
+    vll usb;
+    vll ps2;
 
     F0R(i, m) {
-        int val; string vals;
+        ll val; string vals;
         cin >> val >> vals;
 
         if (vals == "USB") usb.pb(val);
@@ -42,7 +42,7 @@ int main() {
     sort(all(usb));
     sort(all(ps2));
 
-    int u = 0, p = 0, cost = 0, total = 0;
+    ll u = 0, p = 0, cost = 0, total = 0;
     
     while (a && u < usb.size()) {
         cost += usb[u++];
