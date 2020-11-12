@@ -24,6 +24,8 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
+// Accepted
+
 int main() {
     ll a, b, c, m;
     cin >> a >> b >> c >> m;
