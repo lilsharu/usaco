@@ -26,12 +26,14 @@ void setIO(string name) {
 
 int main() {
     setIO("diamond");
-    
-    int n, k;
 
-    vi arr(n);
+    int n, k;
+    cin >> n >> k;
+
+    vi arr(n + 1);
     
     F0R(i, n) cin >> arr[i];
+    arr[n] = INT_MAX - arr[n - 1];
 
     sort(all(arr));
 
@@ -39,13 +41,14 @@ int main() {
     
     int sumA = 0, sumB = 0;
 
-    for (i = 0; i < n; i++) {
+    while (j <= n) {
         if (arr[j] - arr[i] > k) {
             if (j - i > sumA) {
+                if (sumA > sumB) sumB = sumA;
                 sumA = j - i;
             } else if (j - i > sumB) sumB = j - 1;
 
-            i++;
+            i = j;
         } 
         if (arr[j] - arr[i] <= k) j++;
     }
