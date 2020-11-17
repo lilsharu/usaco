@@ -36,22 +36,35 @@ int main() {
     arr[n] = INT_MAX - arr[n - 1];
 
     sort(all(arr));
-
-    int i = 0, j = 0;
     
-    int sumA = 0, sumB = 0;
+    int l = 0, r = 0;
 
-    while (j <= n) {
-        if (arr[j] - arr[i] > k) {
-            if (j - i > sumA) {
-                if (sumA > sumB) sumB = sumA;
-                sumA = j - i;
-            } else if (j - i > sumB) sumB = j - 1;
-
-            i = j;
-        } 
-        if (arr[j] - arr[i] <= k) j++;
+    vi maxVals(n, 1);
+    
+    F0R(i, n) {
+        int j = i + 1;
+        while (arr[j++] - arr[i] <= k) {
+            maxVals[i]++;
+        }
     }
 
-    cout << sumA + sumB << endl;
+    int max = 0, m = 0;
+    F0R(i, n) {
+        if (maxVals[i] > max) {
+            max = maxVals[i];
+            m = i;
+        }
+    }
+
+    int max2 = 0;
+    F0R(i, n) {
+        if (i >= m && i < m + max - 1) {
+            continue;
+        }
+        if (maxVals[i] > max2) {
+            max2 = maxVals[i];
+        }
+    }
+
+    cout << max + max2 << endl;
 }
