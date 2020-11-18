@@ -31,6 +31,7 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
+// 12/12
 int main() {
     setIO("herding");
 
