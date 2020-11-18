@@ -34,8 +34,11 @@ void setIO(string name) {
 int main() {
     read(n);
 
-    string val;
-    cin >> val;
+    string s;
+    cin >> s;
+
+    char val[n];
+    F0R(i, n) val[i] = s[i];
 
     read(q);
 
@@ -43,15 +46,18 @@ int main() {
         read(changes);
         char c; cin >> c;
 
-        int sol = 0;
+        int sol = changes;
+
         F0R(i, n) {
-            int j = changes, ind = i, sum = 0;
-            while ((val[ind] == c || j--) && ind < n) {
-                if (val[ind] == c) j++;
-                sum++;
+            int j = i;
+            int ch = changes;
+            while (val[j] == c || ch--) {
+                j++;
             }
-            sol = max(sol, sum);
+            sol = max(sol, j - i);
+            if (i + sol + 1 > n) break;
         }
+
         cout << sol << endl;
     }
 }
