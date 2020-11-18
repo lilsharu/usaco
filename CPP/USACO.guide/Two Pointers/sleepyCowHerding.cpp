@@ -43,32 +43,21 @@ int main() {
     }
 
     sort(all(arr));
-    
-    int subtractBy = arr[0];
-    int maximum = arr[n - 1] - subtractBy + 1;
-    
-    vi positions(maximum);
 
-    FORN {
-        positions[arr[i] - subtractBy] = 1;
-    }
-
-    vi sum(maximum + 1);
-    
-    FOR(i, 1, maximum + 1) {
-        sum[i] = positions[i - 1] + sum[i - 1];
-    }
-
-    int s = 0;
-    FOR(i, n + 1, maximum + 1) {
-        int val = sum[i] - sum[i - n - 1];        
-        if (val > s) {
-            s = val;
+    int minimum = INT_MAX;
+    if (arr[n - 2] - arr[0] == n - 2 && arr[n - 1] - arr[n - 2] > 2) minimum = 2;
+    else if (arr[n - 1] - arr[1] == n - 2 && arr[1] - arr[0] > 2) minimum = 2;
+    else {
+        int j = 0, best = 0;
+        F0R(i, n) {
+            while (j < n - 1 && arr[j + 1] - arr[i] <= n - 1) j++;
+            best = max(best, j - i + 1);
         }
-    }
 
-    int minimum = n - s;
-    int maxGap = max(arr[n - 2] - arr[0], arr[n - 1], arr[1]) - n + 2;
+        minimum = n - best;
+    }
+    
+    int maxGap = max(arr[n - 2] - arr[0], arr[n - 1] - arr[1]) - n + 2;
 
     cout << minimum << endl;
     cout << maxGap << endl;
