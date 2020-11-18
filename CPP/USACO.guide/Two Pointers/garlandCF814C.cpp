@@ -51,7 +51,7 @@ int main() {
         F0R(i, n) {
             int j = i;
             int ch = changes;
-            while (val[j] == c || ch--) {
+            while (j < n && (val[j] == c || ch--)) {
                 j++;
             }
             sol = max(sol, j - i);
