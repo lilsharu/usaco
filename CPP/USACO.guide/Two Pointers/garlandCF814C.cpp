@@ -46,6 +46,11 @@ int main() {
         read(changes);
         char c; cin >> c;
 
+        if (changes >= n) {
+            cout << n << endl;
+            continue;
+        }
+
         int sol = changes;
 
         F0R(i, n) {
