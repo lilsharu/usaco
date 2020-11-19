@@ -55,15 +55,20 @@ int main() {
 
         int j = 0;
         int pos = s.find(c);
+
+        int start = 0;
+        if (n - pos > changes * 2) start = pos;
+        
         if (pos == -1) goto printsol;
 
-        F0R(i, n) {
+        FOR(i, start, n) {
             if (i >= pos && val[i] != c) continue;
             int ch = changes;
             j = i;
             while (j < n && (val[j] == c || ch--)) {
                 j++;
             }
+            if (j == n && ch && j - i + ch <= n) j += ch;
             sol = max(sol, j - i);
             if (i + sol + 1 > n) break;
         }
