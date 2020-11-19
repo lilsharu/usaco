@@ -53,9 +53,14 @@ int main() {
 
         int sol = changes;
 
+        int j = 0;
+        int pos = s.find(c);
+        if (pos == -1) goto printsol;
+
         F0R(i, n) {
-            int j = i;
+            if (i >= pos && val[i] != c) continue;
             int ch = changes;
+            j = i;
             while (j < n && (val[j] == c || ch--)) {
                 j++;
             }
@@ -63,6 +68,7 @@ int main() {
             if (i + sol + 1 > n) break;
         }
 
+        printsol:
         cout << sol << endl;
     }
 }
