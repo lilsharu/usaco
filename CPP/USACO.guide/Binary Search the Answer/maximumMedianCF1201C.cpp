@@ -29,6 +29,7 @@ void setIO(string name) {
 int n, k;
 
 bool check(int pos, vll arr) {
+    if (pos > n) return false;
     ll sum = 0;
     for (int i = 0; i < (n + 1) / 2; i++) {
         sum += max(0ll, arr[pos] - arr[i]);
@@ -49,5 +50,5 @@ int main() {
         while (check(pos + a, arr)) pos += a;
     }
 
-    cout << pos << endl;
+    cout << arr[pos] << endl;
 }
