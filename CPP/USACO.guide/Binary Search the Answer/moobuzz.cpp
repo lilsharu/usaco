@@ -27,7 +27,7 @@ void setIO(string name) {
 }
 
 
-// 12/13
+// 13/13
 int main() {
     setIO("moobuzz");
     ll n;
@@ -44,5 +44,8 @@ int main() {
 
     ll ans = (n / 8ll) * 15ll + vals[n % 8];
     
+    if (!(n % 8)) ans--;
+    
     cout << ans << endl;
+    return 0;
 }
