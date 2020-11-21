@@ -26,6 +26,8 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
+
+// 12/13
 int main() {
     setIO("moobuzz");
     ll n;
