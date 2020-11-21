@@ -26,29 +26,38 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
-int n, k;
+int n;
+ll k;
+vll v;
 
-bool check(int pos, vll arr) {
-    if (pos > n) return false;
+bool check(ll x) {
     ll sum = 0;
-    for (int i = 0; i < (n + 1) / 2; i++) {
-        sum += max(0ll, arr[pos] - arr[i]);
+    FOR(i, (n - 1)/2, n) {
+        sum += max(0ll, x - v[i]);
     }
 
     return sum <= k;
 }
 
-int main() {
-    cin >> n >> k;
-    
-    vll arr(n);
-
-    sort(all(arr));
-
-    ll pos = 0, maximum = n;
-    for (ll a = maximum; a >= 1; a /= 2) {
-        while (check(pos + a, arr)) pos += a;
+ll search() {
+    ll pos = 0, max = 2E9;
+    for (ll a = max; a >= 1; a /= 2) {
+        while(check(pos + a)) pos += a;
     }
 
-    cout << arr[pos] << endl;
+    return pos;
+}
+
+int main() {
+    cin >> n >> k;
+
+    FORN {
+        int t;
+        cin >> t;
+        v.pb(t);
+    }
+
+    sort(all(v));
+
+    cout << search() << endl;
 }
