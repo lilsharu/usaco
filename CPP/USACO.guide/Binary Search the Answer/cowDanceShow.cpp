@@ -55,6 +55,7 @@ int solve(int lo, int hi) {
     return lo;
 }
 
+// 6/10
 int main() {
     setIO("cowdance");
     cin >> n >> t;
