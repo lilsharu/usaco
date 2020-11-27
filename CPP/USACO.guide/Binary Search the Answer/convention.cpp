@@ -66,10 +66,19 @@ int main() {
     ttop = cows[n - 1];
     tbottom = cows[0];
 
-    int x;
-    cin >> x;
+    if (ttop == tbottom) {
+        cout << cows.size() / c + (cows.size() % c > 0) ? 1 : 0 << endl;
+        return 0;
+    }
 
-    bool a = checkTime(x);
+    int lo = 0;
+    int hi = ttop - tbottom;
 
-    cout << a ? 1 : 0;
+    for (hi++; lo < hi;) {
+        int mid = (lo + hi) / 2;
+        checkTime(mid) ? hi = mid : lo = mid + 1;
+    }
+
+    cout << lo << endl;
+    return 0;
 }
