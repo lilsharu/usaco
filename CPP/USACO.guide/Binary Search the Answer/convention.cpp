@@ -30,26 +30,21 @@ int n, m, c, ttop, tbottom;
 vi cows;
 
 bool checkTime(int tmax) {
-    int i = 0;
-    int mm = m;
-    priority_queue<int> pq;
-    for (int t = tbottom; t < ttop; t++) {
-        while (cows[i] <= t) pq.push(-cows[i++]);
-        if (pq.size() > 0) {
-            if ((pq.size() >= c || t + pq.top() == tmax || t == ttop)) {
-                mm--;
-                int i = pq.size();
-                while (pq.size() > 0 && i - pq.size() < c) {
-                    pq.pop(); 
-                }
-            }
-            if (t + pq.top() > tmax || !mm) return false; 
-        }
+    int busses = 1;
+    int start = cows[0];
+    int startIndex = 0;
+    FOR(i, 1, n) {
+       if (cows[i] - start > tmax || i - startIndex + 1 > c) {
+           busses++;
+           start = cows[i];
+           startIndex = i; 
+       } 
     }
 
-    return true;
+    return busses <= m;
 }
 
+// 1/10
 int main() {
     setIO("convention");
     
