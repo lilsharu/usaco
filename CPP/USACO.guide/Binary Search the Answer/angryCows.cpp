@@ -58,7 +58,7 @@ bool check(int r) {
 
     int index = 0;
     for (int i = 0; i < n - 1; i++) {
-        if (hp[i + 1] - hp[i] >= 2 * r || i + 2 == n) {
+        if (hp[i + 1] - hp[i] >= 2 * r + 1 || i + 2 >= n) {
             vi temp; 
             copy(hp.begin() + index, hp.begin() + i + 1, back_inserter(temp));
             arrayParts.pb(temp);
@@ -69,7 +69,8 @@ bool check(int r) {
     int sum = 0;
 
     trav(x, arrayParts) {
-        sum += (x.size() / r + (x.size() % r ? 1 : 0)); 
+        int gap = x.back() - x.front() + 1;
+        sum += gap / (2 * r + 1) + (gap % (2 * r + 1) ? 1 : 0);
     }
 
     return sum <= k;
