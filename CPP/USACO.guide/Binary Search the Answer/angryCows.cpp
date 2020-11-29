@@ -53,27 +53,43 @@ int n, k;
 vi hp;
 
 bool check(int r) {
-    vector<vi> arrayParts;
-    if (k * r * 2 >= hp[n - 1] - hp[0]) return true;
+    int last = 0;
+    int current  = 0;
 
-    int index = 0;
-    for (int i = 0; i < n - 1; i++) {
-        if (hp[i + 1] - hp[i] >= 2 * r + 1 || i + 2 >= n) {
-            vi temp; 
-            copy(hp.begin() + index, hp.begin() + i + 1, back_inserter(temp));
-            arrayParts.pb(temp);
-            index = i + 1;
+    int total = 0; 
+
+    while (last < n) {
+        total++;
+        current = last + 1;
+        while (current < n && hp[current] - hp[last] <= 2 * r) {
+            current++; 
         }
+        last = current;
     }
 
-    int sum = 0;
+    return total <= k;
 
-    trav(x, arrayParts) {
-        int gap = x.back() - x.front() + 1;
-        sum += gap / (2 * r + 1) + (gap % (2 * r + 1) ? 1 : 0);
-    }
+    // vector<vi> arrayParts;
+    // if (k * r * 2 >= hp[n - 1] - hp[0]) return true;
 
-    return sum <= k;
+    // int index = 0;
+    // for (int i = 0; i < n - 1; i++) {
+    //     if (hp[i + 1] - hp[i] >= 2 * r || i + 2 >= n) {
+    //         vi temp; 
+    //         copy(hp.begin() + index, hp.begin() + i + 1, back_inserter(temp));
+    //         arrayParts.pb(temp);
+    //         index = i + 1;
+    //     }
+    // }
+
+    // int sum = 0;
+
+    // trav(x, arrayParts) {
+    //     int gap = x.back() - x.front() + 1;
+    //     sum += gap / (2 * r + 1) + (gap % (2 * r + 1) ? 1 : 0);
+    // }
+
+    // return sum <= k;
 }
 
 // 7/10
