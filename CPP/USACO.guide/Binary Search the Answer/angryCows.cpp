@@ -76,6 +76,8 @@ bool check(int r) {
     return sum <= k;
 }
 
+// 7/10
+
 int main() {
     setIO("angry");
 
