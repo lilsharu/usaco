@@ -46,23 +46,21 @@ int n, m;
 vector<pair<ll, ll>> v;
 
 
-// 1/10
+// 10/10
 bool check(ll d) {
     int c = n;
     ll prevCow = -d;
-    int i = 0;
-    
-    while (c--) {
-        prevCow += d;
-        while (i < m && v[i].second < prevCow) {
-            i++;
+
+    trav(i, v) {
+        while (max(prevCow + d, i.first) <= i.second) {
+            prevCow = max(prevCow + d, i.first);
+            c--;
+            if (!c) break;
         }
-
-        if (v[i].first <= prevCow) continue;
-        else prevCow = v[i].first; 
-    }
-
-    return i < m;
+        if(!c) break;
+    } 
+    
+    return !c;
 }
 
 int main() {
