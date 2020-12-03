@@ -45,6 +45,8 @@ void setIO(string name) {
 int n, m;
 vector<pair<ll, ll>> v;
 
+
+// 1/10
 bool check(ll d) {
     int c = n;
     ll prevCow = -d;
