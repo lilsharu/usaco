@@ -42,5 +42,44 @@ void setIO(string name) {
  * pair of cows. Please help the cows determine the largest possible value of D.
  */
 
+int n, m;
+vector<pair<ll, ll>> v;
+
+bool check(ll d) {
+    int c = n;
+    ll prevCow = -d;
+    int i = 0;
+    
+    while (c--) {
+        prevCow += d;
+        while (i < m && v[i].second < prevCow) {
+            i++;
+        }
+
+        if (v[i].first <= prevCow) continue;
+        else prevCow = v[i].first; 
+    }
+
+    return i < m;
+}
+
 int main() {
+    setIO("socdist");
+    cin >> n >> m;
+
+    F0R(i, 2 * m) {
+        ll a, b;
+        cin >> a >> b;
+        v.pb(pair<ll, ll>(a, b));
+    }
+
+    sort(all(v));
+
+    int a = v[m - 1].second, start = 0;
+    for (; a >= 1; a /= 2) {
+        while (check(start + a)) start += a; 
+    }
+    
+    cout << start << endl;
+    return 0;
 }
