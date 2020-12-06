@@ -44,7 +44,7 @@ bool checkTime(int tmax) {
     return busses <= m;
 }
 
-// 1/10
+// 10/10
 int main() {
     setIO("convention");
     
