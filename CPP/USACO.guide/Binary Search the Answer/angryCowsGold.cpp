@@ -51,20 +51,84 @@ void setIO(string name) {
  * subsequent detonation of every single hay bale in the scene
  */
 
-bool check(int r) {
+int n;
+ll m;
+pair<ll, ll> mp;
+vector<ll> v;
 
+pair<ll, ll> findMid() {
+    ll midIndexL = 0, prevDiffL = v[n - 1];
+    ll midIndexR = n, prevDiffR = -v[n - 1];
+    for (int i = 0; i < n; i++) {
+        ll diff = (m - v[i]);
+        if (diff > 0 && diff < prevDiffL) {
+            prevDiffL = diff;
+            midIndexL = i;
+        } else if (diff > prevDiffR) {
+            prevDiffR = diff;
+            midIndexR = i; 
+        }
+    }
+
+    return pair<ll, ll>(midIndexL, midIndexR);
 }
 
-int n;
-vi v;
+bool check(ll r) {
+
+    ll p1 = r;
+    ll p2 = r;
+    ll rp = m + r;
+    ll lp = m - r;
+
+    if (rp >= v[n - 1] && lp <= v[0]) return true;
+
+    for (int i = mp.second; i < n && p1 > 0; i++) {
+        while (i < n && rp > v[i + 1]) i++;
+        p1 -= 1;
+        rp = v[i] + p1; 
+    }
+    
+    if (rp < v[n - 1]) return false;
+    
+    for (int i = mp.first; i >= 0; i--) {
+        while(i >= 0 && lp < v[i - 1]) i--;
+        p2 -= 1;
+        lp = v[i] - p2;
+    }
+    
+    return lp < v[0];
+}
 
 int main() {
     setIO("angry");
     cin >> n;
 
     FORN {
-        int t;
+        ll t;
         cin >> t;
-        v.pb(t);
+        v.pb(2 * t);
     }
+
+    sort(all(v));
+
+    if (n == 1) {
+        cout << 0 << endl;
+        return 0;
+    }
+
+    if (n == 2) {
+        cout << (double)(v[1] - v[0]) / 4 << endl;
+        return 0;
+    }
+
+    m = (v[n - 1] - v[0]) / 2;
+    mp = findMid();
+
+    ll r = m - v[0];
+    for (ll a = r; a >= 1; a /= 2) {
+        while (check(r - a)) r -= a; 
+    }
+
+    cout << r / 2.0 << endl;
+    return 0;
 }
