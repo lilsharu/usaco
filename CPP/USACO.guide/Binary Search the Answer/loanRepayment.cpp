@@ -92,6 +92,8 @@ bool check(int x) {
     return g >= n;
 }
 
+
+// 4 / 11
 int main() {
     setIO("loan");
     cin >> n >> k >> m;
