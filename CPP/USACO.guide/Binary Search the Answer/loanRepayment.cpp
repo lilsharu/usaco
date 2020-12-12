@@ -31,7 +31,7 @@ void setIO(string name) {
 
 ll pow(ll a, ll b) {
     ll q = 1ll;
-    while (b) {
+    while (b--) {
         q *= a;
     }
     return q;
@@ -41,12 +41,12 @@ ll n, k, m;
 
 ll calcGive(ll x, ll i) {
     if (i == 1) return n / x;
-    
+
     ll numerator = 0;
     ll oi = i;
     while (i) {
         i--;
-        numerator += ((oi - i) % 2 ? pow(x, i) : -pow(x, i)); 
+        numerator += ((oi - i) % 2 ? pow(x, i) : -pow(x, i));
     }
 
     numerator *= n;
@@ -56,12 +56,12 @@ ll calcGive(ll x, ll i) {
 
 ll calcTotal(ll x, ll i) {
     if (i == 1) return n / x;
-    
+
     ll numerator = 0;
     ll oi = i;
     while (i) {
         i--;
-        numerator += ((oi - i) % 2 ? pow(x, i) : -pow(x, i)); 
+        numerator += ((oi - i) % 2 ? pow(x, i) : -pow(x, i)) * (i != 0 ? 2 : 1);
     }
 
     numerator *= n;
@@ -70,22 +70,22 @@ ll calcTotal(ll x, ll i) {
 }
 
 bool check(int x) {
-    ll g = 0;
-    
     int lo = 1, hi = k;
     for (lo--; lo < hi; ) {
        int mid = (lo + hi + 1)/2;
-       calcGive(x, mid) > m ? lo = mid : hi = mid - 1;         
+       calcGive(x, mid) > m ? lo = mid : hi = mid - 1;
     }
+    
+    // for (ll i = 0; i < k && g < n; i++) {
+    //     ll y = (n - g) / x;
+    //     if (y < m) {
+    //         ll rounds = k - i;
+    //         g += rounds * m;
+    //         break;
+    //     } else g += y;
+    // }
 
-    for (ll i = 0; i < k && g < n; i++) {
-        ll y = (n - g) / x;
-        if (y < m) {
-            ll rounds = k - i;
-            g += rounds * m;
-            break;
-        } else g += y;
-    }
+    ll g = calcTotal(x, lo) + (k - lo >= 1 ? m * (k - lo) : 0);
 
     return g >= n;
 }
