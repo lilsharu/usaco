@@ -83,7 +83,7 @@ bool check(ll r) {
     if (rp >= v[n - 1] && lp <= v[0]) return true;
 
     for (int i = mp.second; i < n && p1 > 0; i++) {
-        while (i < n && rp > v[i + 1]) i++;
+        while (i + 1 < n && rp > v[i + 1]) i++;
         p1 -= 1;
         rp = v[i] + p1; 
     }
@@ -91,12 +91,12 @@ bool check(ll r) {
     if (rp < v[n - 1]) return false;
     
     for (int i = mp.first; i >= 0; i--) {
-        while(i >= 0 && lp < v[i - 1]) i--;
+        while(i - 1 >= 0 && lp < v[i - 1]) i--;
         p2 -= 1;
         lp = v[i] - p2;
     }
     
-    return lp < v[0];
+    return lp <= v[0];
 }
 
 int main() {
@@ -121,7 +121,7 @@ int main() {
         return 0;
     }
 
-    m = (v[n - 1] - v[0]) / 2;
+    m = (v[n - 1] + v[0]) / 2;
     mp = findMid();
 
     ll r = m - v[0];
@@ -129,6 +129,6 @@ int main() {
         while (check(r - a)) r -= a; 
     }
 
-    cout << r / 2.0 << endl;
+    cout << (double)(r / 2.0) << endl;
     return 0;
 }
