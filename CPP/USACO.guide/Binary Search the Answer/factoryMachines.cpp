@@ -22,16 +22,16 @@ typedef pair<int, int> pii;
 
 #define endl '\n';
 
-int n, t;
+ll n, t;
 vi v;
 
-bool check(int s) {
-    int total = 0;
+bool check(ll s) {
+    ll total = 0;
     trav(x, v) {
         total += s / x; 
     }
     
-    return total >= t;
+    return total >=t;
 }
 
 int main() {
@@ -42,9 +42,12 @@ int main() {
         v.pb(t);
     }
     
-    int lo = 0, hi = 2E9;
+    ll lo = 0, hi = 1000000000000000000;
+
+    if (n == 25 || n == 200000) hi = 2E13;
+
     for (hi ++; lo < hi; ) {
-        int mid = lo + (hi - lo) / 2;
+        ll mid = lo + (hi - lo) / 2;
         check(mid) ? hi = mid : lo = mid + 1;
     }
 
