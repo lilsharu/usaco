@@ -37,7 +37,7 @@ void setIO() {
     cin.tie(0);
 }
 
-// 9 / 10
+// 10 / 10
 
 int main() {
     setIO("crosswords");
@@ -57,39 +57,12 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (v[i][j] == '.') {
-                if (j == 0 || v[i][j - 1] == '#') {
-                    bool work = true;
-                    if (!(j + 3 > m)) {
-                        for (int k = j + 1; k < j + 3 && k < n; k++) {
-                            if (v[i][k] == '#') {
-                                work = false;
-                                break;
-                            }
-                        }
-                        if (work) {
-                            clues++;
-                            vals.pb(pii(i, j));
-                            continue;
-                        }
-                    }
-                } 
-                if (i == 0 || v[i - 1][j] == '#') {
-                    bool work = true;
-                    if (!(i + 3 > n)) {
-                        for (int k = i + 1; k < i + 3 && k < n; k++) {
-                            if (v[k][j] == '#') {
-                                work = false;
-                                break;
-                            }
-                        }
-                        if (work) {
-                            clues++;
-                            vals.pb(pii(i, j));
-                            continue;
-                        }
-                    }
-                }
+            bool s = (j + 2 < m && v[i][j] == '.' && v[i][j + 1] == '.' && v[i][j + 2] == '.' && (j == 0 || v[i][j - 1] == '#'));
+            bool t = (i + 2 < n && v[i][j] == '.' && v[i + 1][j] == '.' && v[i + 2][j] == '.' && (i == 0 || v[i - 1][j] == '#'));
+
+            if (s || t) {
+                clues++;
+                vals.pb(pii(i, j));
             }
         }
     }
