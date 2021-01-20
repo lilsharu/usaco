@@ -96,7 +96,7 @@ int main() {
                 aval = 9;
                 bval = 9;
                 break;
-            case '1':
+            case 'T':
                 aval = 10;
                 bval = 10;
                 break;

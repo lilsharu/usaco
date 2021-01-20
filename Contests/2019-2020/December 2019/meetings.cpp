@@ -80,13 +80,11 @@ int main() {
             if (v[i].d == 1 && v[i + 1].d == -1) {
                 if (dist < b) {
                     x = i; 
-                    b = dist;
                 } 
             } else if (v[i].d == 0) {
-                if (dist < b) {
-                    x = i;
-                    b = dist;
-                }
+                wCurr += v[i + 1].w;
+                auto it = v.begin() + i + 1;
+                v.erase(it);
             }
         }
 
