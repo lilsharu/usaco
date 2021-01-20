@@ -37,9 +37,15 @@ void setIO() {
     cin.tie(0);
 }
 
+int n;
+int dfsv[2501];
+int cv[2501];
+vi adj[2501];
+
 int dfs(int current, int parent) {
     for (auto a : adj[current]) {
         if (a != parent) {
+            dfsv[a]++;
             dfsv[current] += 12 - dfs(a, current);
             dfsv[current] = (dfsv[current] - 1) % 12 + 1;
         }
@@ -47,11 +53,6 @@ int dfs(int current, int parent) {
     dfsv[parent]++;
     return dfsv[current];
 }
-
-int n;
-int dfsv[2501];
-int cv[2501];
-vi adj[2501];
 
 int main() {
     setIO("clocktree");
@@ -67,11 +68,11 @@ int main() {
 
     int total = 0;
     for (int i = 1; i <= n; i++) {
-        for (int i = 1; i <= n; i++) {
-            dfsv[i] = cv[i];
+        for (int j = 1; j <= n; j++) {
+            dfsv[j] = cv[j];
         }
-
-        if (dfs(i, 0) == 12) {
+        dfs(i, 0);
+        if (dfsv[i] == 12 || dfsv[i] == 1) {
             total++;
         }
     }
