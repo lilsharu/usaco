@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include<set>
+#include<algorithm>
+#include<vector>
+
 using namespace std;
 
 typedef vector<int> vi;
@@ -22,11 +26,7 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
-bool sorter(const pii &a, const pii &b) {
-    return a.f - a.s < b.f - b.s;
-}
-
-// 3 / 10
+// 9 / 10 (Timeout)
 
 int main() {
     ios_base::sync_with_stdio(0);
@@ -37,28 +37,29 @@ int main() {
     cin >> c >> n;
 
     vi chickens(c);
-    vpi cows(n);
+    multiset<pii> cows;
 
     for (int i = 0; i < c; i++) {
         cin >> chickens[i];
     }
 
     for (int i = 0; i < n; i++) {
-        cin >> cows[i].f >> cows[i].s;
+        read2(a, b);
+        cows.insert({b, a});
     }
 
     sort(all(chickens));
-    sort(all(cows), sorter);
 
     int total = 0;
 
-    for (int j = 0; j < c; j++) {
-        for (int i = 0; i < n; i++) {
-            if (chickens[j] >= cows[i].f && chickens[j] <= cows[i].s) {
+    for (int i = 0; i < c; i++) {
+        for (auto p : cows) {
+            if (p.f < chickens[i]) continue;
+            else if (p.s > chickens[i]) continue;
+            else {
                 total++;
-                cows.erase(cows.begin() + i);
-                j++;
-                i = -1;
+                cows.erase(cows.find(p));
+                break;
             }
         }
     }
