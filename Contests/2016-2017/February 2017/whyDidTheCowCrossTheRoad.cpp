@@ -26,7 +26,7 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
-// 9 / 10 (Timeout)
+// 10 / 10 EXTREMELY CLOSE TO TIMEOUT (11ms)
 
 int main() {
     ios_base::sync_with_stdio(0);
