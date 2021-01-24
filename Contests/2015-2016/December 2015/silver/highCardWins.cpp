@@ -22,6 +22,8 @@ void setIO(string name) {
     freopen((name + ".out").c_str(), "w", stdout);
 }
 
+// 15 / 15
+
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
@@ -39,7 +41,7 @@ int main() {
 
     vi bessie, elsie;
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= (n << 1); i++) {
         if (ecard[i]) {
             elsie.pb(i);
         } else {
@@ -49,10 +51,11 @@ int main() {
 
     int j = 0, total = 0;
     for (int i = 0; i < n && j < n; i++) {
-        while (j + 1 < n && bessie[j + 1] < elsie[i]) j++;
+        while (j + 1 < n && bessie[j] < elsie[i]) j++;
         if (j < n && bessie[j] > elsie[i]) {
             total++;
         }
+        j++;
     }
 
     cout << total << endl;
