@@ -90,7 +90,7 @@ int main() {
 
     t = 0;
     for (int i = 0; i < n; i++) {
-        for (int j = (i % 2 == 0 ? 0 : 2); j < n; (j % 2 == 0 ? j ++ : j += 3)) {
+        for (int j = (i % 2 == 0 ? 0 : 1); j < n; (j % 2 == 0 ? j += 3 : j++)) {
             t += val[i][j];
         }
     }
@@ -99,7 +99,43 @@ int main() {
 
     t = 0;
     for (int i = 0; i < n; i++) {
-        for (int j = (i % 2 == 0 ? 2 : 0); j < n; (j % 2 == 0 ? j ++ : j += 3)) {
+        for (int j = (i % 2 == 0 ? 1 : 0); j < n; (j % 2 == 0 ? j += 3 : j++)) {
+            t += val[i][j];
+        }
+    }
+
+    sol = max(sol, t);
+
+    t = 0;
+    for (int j = 0; j < n; j++) {
+        for (int i = (j % 2 == 0 ? 0 : 1); i < n; (i % 2 == 0 ? i += 3 : i++)) {
+            t += val[i][j];
+        }
+    }
+
+    sol = max(sol, t);
+
+    t = 0;
+    for (int j = 0; j < n; j++) {
+        for (int i = (j % 2 == 0 ? 1 : 0); i < n; (i % 2 == 0 ? i += 3 : i++)) {
+            t += val[i][j];
+        }
+    }
+
+    sol = max(sol, t);
+
+    t = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = (i % 2 == 0 ? 0 : 2); j < n; (j % 2 == 0 ? j++ : j += 3)) {
+            t += val[i][j];
+        }
+    }
+
+    sol = max(sol, t);
+
+    t = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = (i % 2 == 0 ? 2 : 0); j < n; (j % 2 == 0 ? j++ : j += 3)) {
             t += val[i][j];
         }
     }
