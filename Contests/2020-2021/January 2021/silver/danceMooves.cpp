@@ -18,7 +18,8 @@ typedef vector<pii> vpi;
 #define s second
 
 vi trans;
-vector<unordered_set<int>> ans;
+vector<unordered_set<int>*> ans;
+vector<int> additional[10001];
 
 int main() {
     ios_base::sync_with_stdio(0);
@@ -31,7 +32,7 @@ int main() {
     ans.resize(n);
     for (int i = 0; i < n; i++) {
         trans[i] = i;
-        ans[i].insert(i);
+        additional[i].pb(i);
     }
 
     for (int i = 0; i < k; i++) {
@@ -42,8 +43,8 @@ int main() {
         int temp = trans[a];
         trans[a] = trans[b];
         trans[b] = temp;
-        ans[trans[a]].insert(a);
-        ans[trans[b]].insert(b);
+        additional[trans[a]].pb(a);
+        additional[trans[b]].pb(b);
     }
 
     vector<bool> visited(n);
@@ -58,18 +59,15 @@ int main() {
             next = trans[next];
         }
 
-        unordered_set<int> forCycle(cycles.begin(), cycles.end());
+        unordered_set<int>* forCycle = new unordered_set<int>(cycles.begin(), cycles.end());
 
         for (auto a : cycles) {
-            copy(ans[a].begin(), ans[a].end(), inserter(forCycle, forCycle.end()));
-        }
-
-        for (auto a : cycles) {
+            copy(additional[a].begin(), additional[a].end(), inserter(*forCycle, (*forCycle).end()));
             ans[a] = forCycle;
         }
     }
 
     for (auto a : ans) {
-        cout << a.size() << endl;
+        cout << (*a).size() << endl;
     }
 }
