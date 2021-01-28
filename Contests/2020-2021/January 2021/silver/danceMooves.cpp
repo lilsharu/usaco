@@ -18,8 +18,8 @@ typedef vector<pii> vpi;
 #define s second
 
 vi trans;
-vector<unordered_set<int>*> ans;
-vector<int> additional[10001];
+vector<int> ans;
+vector<int> additional[100001];
 
 int main() {
     ios_base::sync_with_stdio(0);
@@ -59,15 +59,21 @@ int main() {
             next = trans[next];
         }
 
-        unordered_set<int>* forCycle = new unordered_set<int>(cycles.begin(), cycles.end());
+        unordered_set<int> *x = new unordered_set<int>();
+        unordered_set<int> forCycle = *x;
 
         for (auto a : cycles) {
-            copy(additional[a].begin(), additional[a].end(), inserter(*forCycle, (*forCycle).end()));
-            ans[a] = forCycle;
+            copy(additional[a].begin(), additional[a].end(), inserter(forCycle, (forCycle).end()));
         }
+
+        for (auto a : cycles) {
+            ans[a] = (forCycle).size();
+        }
+
+        delete x;
     }
 
     for (auto a : ans) {
-        cout << (*a).size() << endl;
+        cout << a << endl;
     }
 }
