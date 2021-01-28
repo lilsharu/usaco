@@ -39,15 +39,31 @@ void setIO() {
 
 int n, m;
 vpi cows;
-vi solutions;
+int solution = 0;
 vi taken;
 
+// 10 / 10
+// Strategy: Ad Hoc?
 void promote(int i) {
     if (taken[cows[i].f] != -1) {
         int p = taken[cows[i].f];
-
+        if (taken[cows[p].f] == -1) {
+            taken[cows[p].s] = p;
+            solution++;
+            return;
+        }
+        while (taken[cows[p].s] != -1 && taken[cows[p].s] > p) {
+            int t = p;
+            p = taken[cows[p].s];
+            taken[cows[p].s] = t;
+        }
+        if (taken[cows[p].s] == -1) {
+            taken[cows[p].s] = p;
+            solution++;
+        }
     } else {
         taken[cows[i].f] = i;
+        solution++;
     }
 }
 
@@ -56,19 +72,48 @@ int main() {
     cin >> n >> m;
 
     cows.resize(n);
-    solutions.resize(n);
     taken = *(new vi(m, -1));
 
     for (int i = 0; i < n; i++) {
         cin >> cows[i].f >> cows[i].s;
+        cows[i].f--; cows[i].s--;
     }
 
-
+    vi solutions(n, -1);
+    int end = -1;
     for (int i = n - 1; i >= 0; i--) {
-
+        int j = i;
+        int pos = cows[i].f;
+        while (true) {
+            if (taken[pos] == -1) {
+                taken[pos] = j;
+                solution++;
+                break;
+            } else if (taken[pos] < j) {
+                break;
+            } else {
+                int k = taken[pos];
+                taken[pos] = j;
+                if (pos == cows[k].s) {
+                    break;
+                }
+                j = k;
+                pos = cows[k].s;
+            }
+        }
+        solutions[i] = solution;
+        if (solutions[i] == m) {
+            end = i;
+            break;
+        }
     }
 
-    for (auto i : solutions) {
-        cout << i << endl;
+    if (end != -1) {
+        int i = 0;
+        while (i < end) {
+            solutions[i++] = solutions[end];
+        }
     }
+
+    for (auto a : solutions) cout << a << endl;
 }
