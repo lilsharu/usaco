@@ -8,6 +8,8 @@
         "ostream": "cpp",
         "regex": "cpp",
         "utility": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "bitset": "cpp",
+        "iostream": "cpp"
     }
 }

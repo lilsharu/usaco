@@ -63,8 +63,8 @@ tcT> int lwb(V<T>& a, const T& b) { return int(lb(all(a),b)-bg(a)); }
 #define ff0r(i,a) FOR(i,0,a)
 #define rrof(i,a,b) for (int i = (b)-1; i >= (a); --i)
 #define rr0f(i,a) ROF(i,0,a)
-#define trav(a,x) for (auto& a: x)
 #define fforn ff0r(i, n)
+#define trav(a,x) for (auto& a: x)
 #define FORN F0R(i, n)
 
 const int MOD = 1e9+7; // 998244353;
@@ -210,68 +210,65 @@ void setIO(string s = "") {
 	// ex. try to read letter into int
 	if (sz(s)) { setIn(s+".in"), setOut(s+".out"); } // for USACO
 }
+ 
+int n, m;
 
-struct mi {
-    int v;
-    explicit operator int() const {
-        return v;
-    }
-
-    mi(ll _v) : v(_v % MOD) {
-        v += (v < 0) * MOD;
-    }
-
-    mi() : mi(0) {}
-};
-
-mi operator+(mi a, mi b) {
-    return mi(a.v + b.v);
-}
-
-mi operator-(mi a, mi b) {
-    return mi(a.v - b.v);
-}
-
-mi operator*(mi a, mi b) {
-    return mi((ll) a.v * b.v);
-}
-
-int n;
-vpi v;
-V<mi> sum[100005];
-vpi todo[20001];
-
-void check() {
-	ff0r(i, 20001) {
-		if (todo[i].size() > 0) {
-			int size = sz(todo[i]);
-			sort(all(todo[i]));
-			mi cur = 0;
-			ff0r(j, size) {
-				cur = cur + todo[i][j].f - todo[i][0].f;
-			}
-			ff0r(j, size) {
-				if (j) cur = cur + (2 * j - size) * (todo[i][j].f - todo[i][j - 1].f);
-				sum[todo[i][j].s].pb(cur);
-			}
-		}
+struct DSU {
+	vi e;
+	void init(int n) {
+		e = vi(n, -1);
 	}
-}
+
+	int get(int x) {
+		return e[x] < 0 ? x : e[x] = get(e[x]);
+	}
+
+	bool sameSet(int a, int b) {
+		return get(a) == get(b);
+	}
+
+	int size(int x) {
+		return -e[get(x)];
+	}
+
+	bool unite(int x, int y) {
+		x = get(x);
+		y = get(y);
+		if (x == y) return 0;
+		if (e[x] > e[y]) swap(x, y);
+		e[x] += e[y];
+		e[y] = x;
+		return 1;
+	}
+};
 
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	setIO("triangles");
-	cin >> n;    
-	v.rsz(n);
+	setIO("milkvisits");
+	cin >> n >> m;
 
-	fforn cin >> v[i].f >> v[i].s;
-	ff0r(i, 20001) todo[i].clear();
-	fforn todo[v[i].f + 10000].pb({v[i].s, i});
-	check();	
-	ff0r(i, 20001) todo[i].clear();
-	fforn todo[v[i].s + 10000].pb({v[i].f, i});
-	check();	
-	mi ans = 0;
-	fforn ans = ans + sum[i][0] * sum[i][1];
-	cout << ans.v << endl;
+	string s;
+	re(s);
+	
+	DSU dsu;
+	dsu.init(n);
+
+	ff0r(i, n - 1) {
+		int a, b;
+		re(a, b);
+		a--, b--;
+		if (s[a] == s[b])
+			dsu.unite(a, b);
+	}
+	
+	ff0r(i, m) {
+		int start, finish;
+		char pos;
+		cin >> start >> finish >> pos;
+		start--, finish--;
+		if (!dsu.sameSet(start, finish)) cout << 1;
+		else cout << (s[start] == pos) ? 1 : 0; 
+	}
+	
+	cout << endl;
 }

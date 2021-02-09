@@ -64,11 +64,10 @@ tcT> int lwb(V<T>& a, const T& b) { return int(lb(all(a),b)-bg(a)); }
 #define rrof(i,a,b) for (int i = (b)-1; i >= (a); --i)
 #define rr0f(i,a) ROF(i,0,a)
 #define trav(a,x) for (auto& a: x)
-#define fforn ff0r(i, n)
 #define FORN F0R(i, n)
 
 const int MOD = 1e9+7; // 998244353;
-const int MX = 2e5+5;
+const int MX = 5e4 + 5;
 const ll INF = 1e18; // not too close to LLONG_MAX
 const db PI = acos((db)-1);
 const int dx[4] = {1,0,-1,0}, dy[4] = {0,1,0,-1}; // for every grid problem!!
@@ -205,73 +204,74 @@ void setIn(string s) { freopen(s.c_str(),"r",stdin); }
 void setOut(string s) { freopen(s.c_str(),"w",stdout); }
 void unsyncIO() { ios_base::sync_with_stdio(0); cin.tie(0); }
 void setIO(string s = "") {
+	unsyncIO();
 	// cin.exceptions(cin.failbit); 
 	// throws exception when do smth illegal
 	// ex. try to read letter into int
 	if (sz(s)) { setIn(s+".in"), setOut(s+".out"); } // for USACO
 }
+ 
+vi w, x, d;
+int n, l;
 
-struct mi {
-    int v;
-    explicit operator int() const {
-        return v;
-    }
+int getTime() {
+	// Gets the time
+	vi left, right;
+	ff0r(i, n) {
+		if (d[i] == -1) left.pb(x[i]);
+		else right.pb(x[i]);
+	}
+	vpi v;
+	ff0r(i, sz(left)) v.pb({left[i], w[i]});
+	ff0r(i, sz(right)) v.pb({l - right[i], w[sz(left) + i]});
 
-    mi(ll _v) : v(_v % MOD) {
-        v += (v < 0) * MOD;
-    }
+	sort(all(v));
 
-    mi() : mi(0) {}
-};
-
-mi operator+(mi a, mi b) {
-    return mi(a.v + b.v);
-}
-
-mi operator-(mi a, mi b) {
-    return mi(a.v - b.v);
-}
-
-mi operator*(mi a, mi b) {
-    return mi((ll) a.v * b.v);
-}
-
-int n;
-vpi v;
-V<mi> sum[100005];
-vpi todo[20001];
-
-void check() {
-	ff0r(i, 20001) {
-		if (todo[i].size() > 0) {
-			int size = sz(todo[i]);
-			sort(all(todo[i]));
-			mi cur = 0;
-			ff0r(j, size) {
-				cur = cur + todo[i][j].f - todo[i][0].f;
-			}
-			ff0r(j, size) {
-				if (j) cur = cur + (2 * j - size) * (todo[i][j].f - todo[i][j - 1].f);
-				sum[todo[i][j].s].pb(cur);
-			}
+	int tot = 0;
+	trav(t, v) tot += t.s;
+	trav(t, v) {
+		tot -= 2 * t.s;
+		if (tot <= 0) {
+			return t.f;
 		}
 	}
 }
 
 int main() {
-	cin.tie(0)->sync_with_stdio(0);
-	setIO("triangles");
-	cin >> n;    
-	v.rsz(n);
+	setIO("meetings");
+	cin >> n >> l;
 
-	fforn cin >> v[i].f >> v[i].s;
-	ff0r(i, 20001) todo[i].clear();
-	fforn todo[v[i].f + 10000].pb({v[i].s, i});
-	check();	
-	ff0r(i, 20001) todo[i].clear();
-	fforn todo[v[i].s + 10000].pb({v[i].f, i});
-	check();	
-	mi ans = 0;
-	fforn ans = ans + sum[i][0] * sum[i][1];
-	cout << ans.v << endl;
+	{
+		w.rsz(n), x.rsz(n), d.rsz(n);
+		for (int i = 0; i < n; i++) {
+			cin >> w[i] >> x[i] >> d[i];		
+		}
+
+		vi inds(n); iota(all(inds), 0);
+		sort(all(inds), [](int a, int b) {
+			return x[a] < x[b];
+		});
+
+		// Updates vector with sorted by position
+		vi W, X, D;
+		for (auto t : inds) {
+			W.pb(w[t]);
+			X.pb(x[t]);
+			D.pb(d[t]);
+		}
+		swap(w, W), swap(x, X), swap(d, D);
+	}
+
+	int time = getTime();
+
+	queue<int> qright;
+	int ans = 0;
+	ff0r(i, n) {
+		if (d[i] == -1) {
+			while (sz(qright) && qright.front() + 2 * time < x[i]) qright.pop();
+			ans += sz(qright);	
+		} else qright.push(x[i]);
+	}
+
+	cout << ans << endl;
 }
