@@ -42,6 +42,13 @@ int main() {
 	fforn cin >> v[i].val, v[i].ind = i;
 
 	sort(all(v), [](pii &a, pii &b) -> bool {
-		
+		return a.val < b.val || a.val == b.val && a.ind < b.ind; 
 	});
+
+	int ans = 0;
+	ff0r(i, n) {
+		ans = max(ans, v[i].ind - i);
+	}
+	
+	cout << ans + 1 << endl;
 }
