@@ -58,50 +58,58 @@ struct DSU {
 	}
 };
 
-pii pos[100000];
+int x[100001], y[100001];
+
+int perimeter(int x1, int y1, int x2, int y2) {
+	return ((y2 - y1) + (x2 - x1)) << 1;
+}
+
+int calc(vi v) {
+	int minX = __INT_MAX__, maxX = 0;
+	int minY = __INT_MAX__, maxY = 0;
+
+	for (auto a : v) {
+		minX = min(minX, x[a]);
+		maxX = max(maxX, x[a]);
+		minY = min(minY, y[a]);
+		maxY = max(maxY, y[a]);
+	}
+
+	return perimeter(minX, minY, maxX, maxY);
+}
 
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
-	setIO("fenceplan");
-	
+	setIO("fenceplan");	
+
 	int n, m;
 	cin >> n >> m;
-	
-	DSU d;
-	// d.init(n);
 
-	for (int i = 0; i < n; i++) {
-		cin >> pos[i].f >> pos[i].s;
+	ff0r(i, n){
+		cin >> x[i] >> y[i];
 	}
-	
-	for (int i = 0; i < m; i++) {
+
+	DSU d;
+	d.init(n);
+
+	ff0r(i, m) {
 		int a, b;
 		cin >> a >> b;
 		a--, b--;
-		// d.unite(a, b);
-	}
-	
-	map<int, vector<int>> mp;
-	
-	for (int i = 0; i < n; i++) {
-		int x = i;//d.get(i);
-		mp[x].pb(i);
+		d.unite(a, b);
 	}
 
-	int minp = 4e8 + 1;
-	for (auto const& x : mp) {
-		sort(all(x.s));
-		int maxx = -1, maxy = -1, minx = 1e8 + 1, miny = 1e8 + 1;
-		for (auto a : x.s) {
-			if (pos[a].f < minx) minx = pos[a].f;
-			if (pos[a].f > maxx) maxx = pos[a].f;
-			if (pos[a].s < miny) miny = pos[a].s;
-			if (pos[a].s > maxy) maxy = pos[a].s;
-		}
+	map<int, vi> ma;
 
-		minp = min(minp, ((maxy - miny) << 1) + ((maxx - minx) << 1));
+	ff0r(i, n) {
+		ma[d.get(i)].pb(i);		
 	}
-	
-	cout << minp << endl;
+
+	int area = __INT_MAX__;
+	for (auto a : ma) {
+		area = min(calc(a.s), area);
+	}
+
+	cout << area << endl;
 }
