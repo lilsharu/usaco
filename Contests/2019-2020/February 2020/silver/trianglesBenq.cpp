@@ -18,9 +18,15 @@ struct mi {
   mi(ll _v) : v(_v%MOD) { v += (v<0)*MOD; }
   mi() : mi(0) {}
 };
-mi operator+(mi a, mi b) { return mi(a.v+b.v); }
-mi operator-(mi a, mi b) { return mi(a.v-b.v); }
-mi operator*(mi a, mi b) { return mi((ll)a.v*b.v); }
+mi operator+(mi a, mi b) {
+	return mi(a.v+b.v); 
+}
+mi operator-(mi a, mi b) {
+	return mi(a.v-b.v);
+}
+mi operator*(mi a, mi b) {
+	return mi((ll)a.v*b.v);
+}
 
 int N;
 vector<pair<int,int>> v;
