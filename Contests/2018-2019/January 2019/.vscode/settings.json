@@ -32,6 +32,11 @@
 		"list": "cpp",
 		"vector": "cpp",
 		"type_traits": "cpp",
-		"valarray": "cpp"
+		"valarray": "cpp",
+		"condition_variable": "cpp",
+		"algorithm": "cpp",
+		"limits": "cpp",
+		"streambuf": "cpp",
+		"thread": "cpp"
 	}
 }
