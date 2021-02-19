@@ -36,9 +36,9 @@ int c[101][10];
 bool visited[1001];
 
 int area;
-vpi roots;
 
 void search(int i, int j, int r) {
+	if (j >= 10 || j < 0 || i >= n || i < 0) return;
 	if (!visited[pos(i, j)] && c[i][j] == r) {
 		visited[pos(i, j)] = 1;
 		area++;
@@ -50,6 +50,7 @@ void search(int i, int j, int r) {
 }
 
 void fill(int i, int j, int r) {
+	if (j >= 10 || j < 0 || i >= n || i < 0) return;
 	if (c[i][j] == r) {
 		c[i][j] = 0;
 		fill(i + 1, j, r);
@@ -59,37 +60,36 @@ void fill(int i, int j, int r) {
 	}
 }
 
-vector<bool> v(10);
-
 void gravity() {
 	for (int j = 0; j < 10; j++) {
-		if (!v[j]) continue;
-		int open = n - 1;
+		vi pos;
 		for (int i = n - 1; i >= 0; i--) {
-			while (i - 1 >= 0 && !c[i][j]) i--;
-			while (c[i][j]) {
-				int temp = c[i][j];
-				c[i--][j] = 0;
-				c[open--][j] = temp;
-			}
+			if (c[i][j]) pos.pb(i);
+		}
+		int x = 0;
+		for (int i = n - 1; i >= 0; i--) {
+			c[i][j] = (x < pos.size() ? c[pos[x++]][j] : 0);
 		}
 	}
 }
 
+vpi roots;
 int find() {
+	int total = 0;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < 10; j++) {
 			if (!visited[pos(i, j)] && c[i][j]) {
 				search(i, j, c[i][j]);
-				if (area > k) {
-					roots.pb({i, j});
+				if (area >= k) {
 					fill(i, j, c[i][j]);
+					roots.pb({i, j});
+					total++;
 				}
 				area = 0;
 			}
 		}
 	}
-	return roots.size();
+	return total;
 }
 
 int main() {
@@ -108,7 +108,7 @@ int main() {
 	}
 
 	while (find()) {
-		gravity();		
+		gravity();
 		roots.clear();
 		memset(visited, 0, 1001);
 	}
