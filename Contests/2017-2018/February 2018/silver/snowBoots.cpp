@@ -41,6 +41,7 @@ unsigned int test(int ind = 0, int cur = 0) {
 	for (int i = ind; i < b; i++) {
 		if (bd[i] < cd) continue;
 		int mp = 0, md = d[cur + 1];
+		if (i - ind >= total) continue; // Optimization 1, ignore if bigger than calculated total
 		for (int j = cur + 1; j <= cur + ba[i]; j++) {
 			if (d[j] <= bd[i]) if (md >= d[j]) {
 				md = d[j];
@@ -55,7 +56,7 @@ unsigned int test(int ind = 0, int cur = 0) {
 	return total;
 }
 
-// 3 / 10 --> Timeout
+// 4 / 10 --> Timeout
 // Strategy: Brute Force
 
 int main() {
