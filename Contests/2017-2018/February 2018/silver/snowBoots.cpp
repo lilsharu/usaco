@@ -32,32 +32,26 @@ void setIO(string name) {
 int n, b;
 int d[251], bd[251], ba[251];
 
-unsigned int test(int ind = 0, int cur = 0) {
-	if (cur >= n - 1) return 0;
+bool work[251][251];
+int best = 251;
 
-	// Check Possible to Move
-	int cd = d[cur];
-	unsigned int total = __INT_MAX__;
-	for (int i = ind; i < b; i++) {
-		if (bd[i] < cd) continue;
-		int mp = 0, md = d[cur + 1];
-		if (i - ind >= total) continue; // Optimization 1, ignore if bigger than calculated total
-		for (int j = cur + 1; j <= cur + ba[i]; j++) {
-			if (d[j] <= bd[i]) if (md >= d[j]) {
-				md = d[j];
-				mp = j;
-			}
-		}
-		if (!mp) continue;
-		unsigned int it = test(i, mp);
-		total = min(total, (i - ind) + it);
-		if (it == 0) break;
+void test(int ind = 0, int boot = 0) {
+	if (work[ind][boot]) return;
+	work[ind][boot] = true;
+
+	if (ind == n - 1) best = min(best, boot);
+
+	for (int i = ind + 1; i < n && i - ind <= ba[boot]; i++) {
+		if (bd[boot] >= d[i]) test(i, boot);
 	}
-	return total;
+
+	for (int i = boot; i < b; i++) {
+		if (bd[i] >= d[ind]) test(ind, i);
+	}
 }
 
 // 4 / 10 --> Timeout
-// Strategy: Brute Force
+// Strategy: Full Recursive Search
 
 int main() {
 	ios_base::sync_with_stdio(0);
@@ -74,5 +68,8 @@ int main() {
 		cin >> bd[i] >> ba[i];
 	}
 
-	cout << test() << endl;
+	test();
+
+	cout << best << endl;
+	return 0;
 }
