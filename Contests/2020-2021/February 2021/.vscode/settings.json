@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "*.txt": "plaintext",
+        "type_traits": "cpp",
+        "*.tcc": "cpp",
+        "regex": "cpp",
+        "iostream": "cpp",
+        "bitset": "cpp",
+        "forward_list": "cpp",
+        "fstream": "cpp",
+        "ostream": "cpp"
+    }
+}

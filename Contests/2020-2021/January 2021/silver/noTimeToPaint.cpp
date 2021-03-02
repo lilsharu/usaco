@@ -47,7 +47,7 @@ int main() {
         }
         ss[i] = ss[i - 1];
         if (cols[curchar] < curchar) {
-            ps[i]++;
+            ss[i]++;
         }
         cols[curchar] = curchar;
     }
@@ -55,6 +55,6 @@ int main() {
     for (int i = 0; i < q; i++) {
         int a, b;
         cin >> a >> b;
-        cout << ps[a - 1] << ps[b - 1] << endl;
+        cout << ps[a - 1] << ss[b + 1] << endl;
     }
 }
