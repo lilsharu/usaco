@@ -6,3 +6,8 @@ Java/nbproject/*
 *.in
 *.out
 *.exe
+
+**/.idea/**
+**.iml
+**/cmake-build-debug/**
+**/out/**

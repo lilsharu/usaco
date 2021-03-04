@@ -5,6 +5,13 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "java",
+			"name": "Launch FarmerJohnSolves3SUM",
+			"request": "launch",
+			"mainClass": "FarmerJohnSolves3SUM",
+			"projectName": "HW1_b441939b"
+		},
+		{
 			"name": "g++.exe - Build and debug active file",
 			"type": "cppdbg",
 			"request": "launch",
