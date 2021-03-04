@@ -31,9 +31,9 @@ void setIO(string name) {
 
 int tot[5000][5000];
 
-// Correct: 1 - 7
+// Correct: 1 - 8
 // Incorrect: 10
-// Timeout: 8 - 15 (excluding 10)
+// Timeout: 9 - 15 (excluding 10)
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
@@ -48,19 +48,12 @@ int main() {
 		cin >> v[i];
 	}
 
-	for (int i = 0; i < n; i++) {
-		map<int, int> val;
+	for (int i = n; i >= 0; i--) {
+		unordered_map<int, int> val;
 		for (int k = i + 1; k < n; k++) {
 			int needed = -(v[i] + v[k]);
-			tot[i][k] += val[needed] + tot[i][k - 1];
+			tot[i][k] += val[needed] + tot[i][k - 1] + tot[i + 1][k] - tot[i + 1][k - 1];
 			val[v[k]]++;
-		}
-	}
-
-	for (int i = n - 1; i >= 0; i--) {
-		int j = i;
-		while (--j >= 0) {
-			tot[j][i] += tot[j + 1][i];
 		}
 	}
 
