@@ -65,7 +65,34 @@ void bfs() {
 			if (a == 0 || !visited[a] || me - c * t * t <= me + mg[a] - c * (t + 1) * (t + 1))
 				q.push(dat(a, t + 1, me + mg[a]));
 		}
-		t++;
+	}
+}
+
+void dfs() {
+	stack<dat> s;
+	s.push(dat(0));
+	while (!s.empty()) {
+		auto x = s.top();
+		s.pop();
+		auto t = x.t;
+		auto me = x.me;
+		auto i = x.index;
+		if (i == 0 && t > 0) {
+			auto meog = me;
+			auto tog = t;
+			while (c * t * t < me && me - c * t * t >= (me - meog) - c * (t - tog) * (t - tog)) {
+				maxMooney = max(maxMooney, me - c * t * t);
+				t += tog;
+				me += meog;
+			}
+			continue;
+		}
+
+		for (auto a : adj[i]) {
+			if (a == 0 || !visited[a] || me + mg[a] - c * (t + 1) * (t * 1) >= me - c * t * t) {
+				s.push(dat(a, t + 1, me + mg[a]));
+			}
+		}
 	}
 }
 
@@ -95,5 +122,4 @@ int main() {
 	bfs();
 
 	cout << maxMooney << endl;
-
 }
