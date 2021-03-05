@@ -46,6 +46,11 @@ int main() {
 	int total = 0;
 	for (int i = 0; i < n; i++) {
 		if (!visited[i]) {
+			if (i == v[i]) {
+				total++;
+				visited[i] = true;
+				continue;
+			}
 			int previous = i;
 			int cur = v[i];
 			int size = 1;
@@ -55,7 +60,16 @@ int main() {
 				previous = cur;
 				cur = v[cur];
 			}
-			total += visited[previous] - visited[cur] + 1;
+			if (visited[cur] == -1) {
+				continue;
+			} else {
+				total += visited[previous] - visited[cur] + 1;
+				cur = previous;
+				do {
+					visited[cur] = -1;
+					cur = v[cur];
+				} while (cur != previous);
+			}
 		}
 	}
 
