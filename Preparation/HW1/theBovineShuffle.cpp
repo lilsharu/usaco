@@ -29,8 +29,7 @@ void setIO(string name) {
 	freopen((name + ".out").c_str(), "w", stdout);
 }
 
-// Correct: 1, 10
-// Incorrect: 2 - 9
+// Correct: 1, 8, 10
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
@@ -42,6 +41,7 @@ int main() {
 	vi v(n);
 	for (int i = 0; i < n; i++) cin >> v[i], v[i]--;
 	vector<int> visited(n);
+	vi val(n);
 
 	int total = 0;
 	for (int i = 0; i < n; i++) {
@@ -57,12 +57,11 @@ int main() {
 			visited[i] = size;
 			while (!visited[cur]) {
 				visited[cur] = ++size;
+				val[cur] == i;
 				previous = cur;
 				cur = v[cur];
 			}
-			if (visited[cur] == -1) {
-				continue;
-			} else {
+			if (val[cur] == i) {
 				total += visited[previous] - visited[cur] + 1;
 				cur = previous;
 				do {
