@@ -43,31 +43,53 @@ int main() {
 	vector<int> visited(n);
 	vi val(n);
 
+	// 3 labels for a node:
+	// 0 for not seen before
+	// 1 for in a cycle
+	// -1 for not in a cycle
+	// 2 for current cycle
 	int total = 0;
 	for (int i = 0; i < n; i++) {
 		if (!visited[i]) {
-			if (i == v[i]) {
-				total++;
-				visited[i] = true;
-				continue;
+			int cur = i;
+			int next = v[cur];
+			stack<int> seen;
+			seen.push(cur);
+			visited[cur] = 2;
+			int point = -1;
+			while (true) {
+				if (visited[next] == 2) {
+					point = next;
+					break;
+				}
+				if (visited[next] == -1 || visited[next] == 1) {
+					break;
+				}
+				seen.push(next);
+				visited[next] = 2;
+				cur = next;
+				next = v[cur];
 			}
-			int previous = i;
-			int cur = v[i];
-			int size = 1;
-			visited[i] = size;
-			while (!visited[cur]) {
-				visited[cur] = ++size;
-				val[cur] == i;
-				previous = cur;
-				cur = v[cur];
-			}
-			if (val[cur] == i) {
-				total += visited[previous] - visited[cur] + 1;
-				cur = previous;
-				do {
-					visited[cur] = -1;
-					cur = v[cur];
-				} while (cur != previous);
+
+			if (point != -1) {
+				while(!seen.empty()) {
+					int c = seen.top();
+					seen.pop();
+					visited[c] = 1;
+					total++;
+					if (c == point) {
+						break;
+					}
+				}
+				while (!seen.empty()) {
+					int c = seen.top();
+					seen.pop();
+					visited[c] = -1;
+				}
+			} else while(!seen.empty()) {
+				int c = seen.top();
+				seen.pop();
+				visited[c] = -1;
 			}
 		}
 	}

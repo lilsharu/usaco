@@ -22,6 +22,7 @@ typedef vector<pii> vpi;
 
 #define endl '\n'
 #define f first
+#define s first
 
 void setIO(string name) {
 	freopen((name + ".in").c_str(), "r", stdin);
@@ -34,66 +35,38 @@ int maxMooney = 0;
 
 vi adj[1001];
 bool visited[1001];
+int profit[1001][1001];
 
-struct dat {
-	int index, t, me;
-	dat(int ind, int t, int me) : index(ind), t(t), me(me){}
-	dat(int ind) : index(ind) {t = 0, me = 0;}
-};
-
-void bfs() {
-	queue<dat> q;
-	q.push(dat(0));
+void bfsl(int start) {
+	queue<pii> q;
+	q.push({start, 0});
 	while (!q.empty()) {
-		auto s = q.front();
+		pii cur = q.front();
 		q.pop();
-		visited[s.index] = true;
-		auto t = s.t;
-		auto me = s.me;
-		if (s.index == 0 && t > 0) {
-			auto meog = me;
-			auto tog = t;
-			while (c * t * t < me && me - c * t * t >= meog - c * tog * tog) {
-				maxMooney = max(maxMooney, me - c * t * t);
-				t += tog;
-				me += meog;
+		if(cur.s >= 1000) continue;		
+		for(int next: adj[cur.f]) {
+			if (profit[cur.s + 1][next] < profit[cur.s][cur.f] + mg[next]) {
+				profit[cur.s + 1][next] = profit[cur.s][cur.f] + mg[next];
+				q.push({next, cur.s + 1});
 			}
-			continue;
-		}
-
-		for (auto a : adj[s.index]) {
-			if (a == 0 || !visited[a] || me - c * t * t <= me + mg[a] - c * (t + 1) * (t + 1))
-				q.push(dat(a, t + 1, me + mg[a]));
 		}
 	}
 }
 
-void dfs() {
-	stack<dat> s;
-	s.push(dat(0));
-	while (!s.empty()) {
-		auto x = s.top();
-		s.pop();
-		auto t = x.t;
-		auto me = x.me;
-		auto i = x.index;
-		if (i == 0 && t > 0) {
-			auto meog = me;
-			auto tog = t;
-			while (c * t * t < me && me - c * t * t >= (me - meog) - c * (t - tog) * (t - tog)) {
-				maxMooney = max(maxMooney, me - c * t * t);
-				t += tog;
-				me += meog;
-			}
-			continue;
-		}
-
-		for (auto a : adj[i]) {
-			if (a == 0 || !visited[a] || me + mg[a] - c * (t + 1) * (t * 1) >= me - c * t * t) {
-				s.push(dat(a, t + 1, me + mg[a]));
-			}
-		}
-	}
+void bfs(int start){
+    deque<pii> dq;
+    // pair stores node, moves
+    dq.emplace_back(start, 0);
+    while(dq.size()>0){
+        pii cur = dq.front(); dq.pop_front();
+        if(cur.second>=1000) continue;
+        for(int next: adj[cur.first]){
+            if(profit[cur.second+1][next]< profit[cur.second][cur.first] + mg[next]){
+                profit[cur.second+1][next] = profit[cur.second][cur.first] + mg[next];
+                dq.emplace_back(next, cur.second+1);
+            }
+        }
+    }
 }
 
 // Idea: Find cycles with root (there are going to be a bunch of them) and find
@@ -118,8 +91,11 @@ int main() {
 		a--, b--;
 		adj[a].pb(b);
 	}
+	bfs(0);
+	int best = 0;
+	for (int i = 0; i <= 1000; i++) {
+		best = max(best, profit[i][0] - i * i * c);
+	}
 
-	bfs();
-
-	cout << maxMooney << endl;
+	cout << best << endl;
 }

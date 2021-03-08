@@ -35,21 +35,53 @@ vi adj[40001];
 int barn[40001];
 int bess[40001];
 int els[40001];
-bool visited[3][40001];
 
-void bfs(int val, int pos, int arr[]) {
+void bessieBfs(int val) {
 	queue<int> q;	
 	// Find distance from Bessie
 	q.push(val);
-	arr[val] = 0;
+	bess[val] = 0;
 	while (!q.empty()) {
 		int v = q.front();
 		q.pop();
-		for (auto u : adj[v]) {
-			if (!visited[pos][u]) {
-				visited[pos][u] = true;
-				q.push(u);
-				arr[u] = arr[v] + 1;
+		for (int next : adj[v]) {
+			if (bess[next] > bess[v] + 1) {
+				bess[next] = bess[v] + 1;
+				q.push(next);
+			}
+		}
+	}
+}
+
+void elsBfs(int val) {
+	queue<int> q;	
+	// Find distance from Bessie
+	q.push(val);
+	els[val] = 0;
+	while (!q.empty()) {
+		int v = q.front();
+		q.pop();
+		for (int next : adj[v]) {
+			if (els[next] > els[v] + 1) {
+				els[next] = els[v] + 1;
+				q.push(next);
+			}
+		}
+	}
+}
+
+void barnBfs(int val) {
+	queue<int> q;	
+	// Find distance from Bessie
+	q.push(val);
+	barn[val] = 0;
+	while (!q.empty()) {
+		int v = q.front();
+		q.pop();
+		for (int next : adj[v]) {
+			if (barn[next] > barn[v] + 1) {
+				barn[next] = barn[v] + 1;
+				q.push(next);
 			}
 		}
 	}
@@ -70,15 +102,17 @@ int main() {
 		adj[b].pb(a);
 	}
 
-	memset(barn, -1, 40001);
-	memset(els, -1, 40001);
-	memset(bess, -1, 40001);
+	for (int i = 0; i < 4001; i++) {
+		barn[i] = 1 << 30;
+		els[i] = 1 << 30;
+		bess[i] = 1 << 30;
+	}
 
 	// Find distance from Bessie
-	bfs(0, 0, bess);
+	bessieBfs(0);
 
 	// Find distances from Elsie
-	bfs(1, 1, els);
+	elsBfs(1);
 
 	if (b + e < p) {
 		cout << b * bess[n - 1] + e * els[n - 1] << endl;
@@ -87,12 +121,12 @@ int main() {
 
 	
 	// find distance from the barn (at n - 1)
-	bfs(n - 1, 2, barn);
+	barnBfs(n - 1);
 
-	int tot = b * bess[n - 1] + e * els[n - 1];
+	ll tot = b * bess[n - 1] + e * els[n - 1];
 	for (int i = 0; i < n; i++) {
 		if (bess[i] == -1 || els[i] == -1 || barn[i] == -1) continue;
-		int d = b * bess[i] + e * els[i] + p * barn[i];
+		ll d = b * bess[i] + e * els[i] + p * barn[i];
 		tot = min(tot, d);
 	}
 
