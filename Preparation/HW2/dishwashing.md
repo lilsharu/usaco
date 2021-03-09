@@ -1,8 +1,10 @@
 # Dishwashing
   
-## February 2019 Gold
+## February 2019
   
-### Problem 2
+### Gold
+  
+#### Problem 2
   
 The first observation that needs to be made is that each plate needs to be
 placed on the first stack whose bottom is greater than it, or the next empty
