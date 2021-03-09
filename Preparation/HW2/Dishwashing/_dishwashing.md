@@ -1,6 +1,6 @@
 ---
 markdown:
-    path: dishwashing.md
+    path: "Dishwashing.md"
 export_on_save:
     markdown: true
 ---

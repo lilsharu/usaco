@@ -1,6 +1,6 @@
 ---
 markdown:
-    path: cowAtLarge.md
+    path: "Cow At Large.md"
 export_on_save:
     markdown: true
 ---
