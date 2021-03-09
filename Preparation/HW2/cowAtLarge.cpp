@@ -101,28 +101,6 @@ int main() {
 		tot++;
 		clear(root);		
 	}
-	// for (int cur : exits) {
-	// 	if (vis[cur]) continue;
-	// 	int len = 0;
-	// 	// Find highest possible wait location
-	// 	while (len + 1 < dist[cur]) {
-	// 		len++;
-	// 		vis[cur] = true;
-	// 		cur = parent(cur);
-	// 	}
-	// 	if (cur == k) continue;
-	// 	// Block everything below
-	// 	q.push(cur);
-	// 	while (!q.empty()) {
-	// 		int c = q.front();
-	// 		q.pop();
-	// 		vis[c] = true;
-	// 		for (int next : adj[c]) {
-	// 			if (dist[cur] < dist[next] && !vis[next]) q.push(next);
-	// 		}
-	// 	}
-	// 	tot++;
-	// }
 
 	cout << tot << endl;
 }
