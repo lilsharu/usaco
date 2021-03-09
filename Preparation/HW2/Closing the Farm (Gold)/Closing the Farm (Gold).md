@@ -9,9 +9,9 @@
   
 >**Note**: If you haven't already, I recommend reading my solution for the Silver Version of the Problem First to understand the naive approach to solving this problem.
   
-For the Silver Version of the Problem, we took the naive approach of retesting the validity of retesting the connectivity after each and every removal. While this worked when the limit for $N$ was $3000$, with the new constraints of $200000$ in the gold problem, we have to be a bit creative.
+For the Silver Version of the Problem, we took the naive approach of retesting the validity of retesting the connectivity after each and every removal. While this worked when the limit for <img src="https://latex.codecogs.com/gif.latex?N"/> was <img src="https://latex.codecogs.com/gif.latex?3000"/>, with the new constraints of <img src="https://latex.codecogs.com/gif.latex?200000"/> in the gold problem, we have to be a bit creative.
   
-The biggest bottleneck of the previous solution is testing to see if the graph is connected after each removal, which would lead to an $O(N^2)$ algorithm. However, this can be avoided if we, instead of decunstructing the graph, reconstruct it backwards.
+The biggest bottleneck of the previous solution is testing to see if the graph is connected after each removal, which would lead to an <img src="https://latex.codecogs.com/gif.latex?O(N^2)"/> algorithm. However, this can be avoided if we, instead of decunstructing the graph, reconstruct it backwards.
   
 We can add each barn back one by one from the end state and see if it is connected at that point. This way, we only need to check the connectivity of the current barn and the barns that were disconnected before.
   
@@ -33,8 +33,16 @@ Here is my (C++) code:
 using namespace std;
   
 typedef vector<int> vi;
+typedef vector<long long> vll;
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<pii> vpi;
   
 #define pb push_back
+#define all(x) begin(x), end(x)
+  
+#define endl '\n'
   
 void setIO(const string& name) {
     freopen((name + ".in").c_str(), "r", stdin);
