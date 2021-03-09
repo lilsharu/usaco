@@ -29,22 +29,22 @@ void setIO(string name) {
 	freopen((name + ".out").c_str(), "w", stdout);
 }
 
-int b, e, p, n, m;
+ll b, e, p, n, m;
 
-vi adj[40001];
-int barn[40001];
-int bess[40001];
-int els[40001];
+vll adj[40001];
+ll barn[40001];
+ll bess[40001];
+ll els[40001];
 
-void bessieBfs(int val) {
-	queue<int> q;	
+void bessieBfs(ll val) {
+	queue<ll> q;	
 	// Find distance from Bessie
 	q.push(val);
 	bess[val] = 0;
 	while (!q.empty()) {
-		int v = q.front();
+		ll v = q.front();
 		q.pop();
-		for (int next : adj[v]) {
+		for (ll next : adj[v]) {
 			if (bess[next] > bess[v] + 1) {
 				bess[next] = bess[v] + 1;
 				q.push(next);
@@ -53,15 +53,15 @@ void bessieBfs(int val) {
 	}
 }
 
-void elsBfs(int val) {
-	queue<int> q;	
+void elsBfs(ll val) {
+	queue<ll> q;	
 	// Find distance from Bessie
 	q.push(val);
 	els[val] = 0;
 	while (!q.empty()) {
-		int v = q.front();
+		ll v = q.front();
 		q.pop();
-		for (int next : adj[v]) {
+		for (ll next : adj[v]) {
 			if (els[next] > els[v] + 1) {
 				els[next] = els[v] + 1;
 				q.push(next);
@@ -70,15 +70,15 @@ void elsBfs(int val) {
 	}
 }
 
-void barnBfs(int val) {
-	queue<int> q;	
+void barnBfs(ll val) {
+	queue<ll> q;	
 	// Find distance from Bessie
 	q.push(val);
 	barn[val] = 0;
 	while (!q.empty()) {
-		int v = q.front();
+		ll v = q.front();
 		q.pop();
-		for (int next : adj[v]) {
+		for (ll next : adj[v]) {
 			if (barn[next] > barn[v] + 1) {
 				barn[next] = barn[v] + 1;
 				q.push(next);
@@ -96,13 +96,13 @@ int main() {
 	cin >> b >> e >> p >> n >> m;
 
 	for (int i = 0; i < m; i++) {
-		int a, b; cin >> a >> b;
+		ll a, b; cin >> a >> b;
 		a--, b--;
 		adj[a].pb(b);
 		adj[b].pb(a);
 	}
 
-	for (int i = 0; i < 4001; i++) {
+	for (int i = 0; i < 40001; i++) {
 		barn[i] = 1 << 30;
 		els[i] = 1 << 30;
 		bess[i] = 1 << 30;
