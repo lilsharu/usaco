@@ -33,16 +33,8 @@ Here is my (C++) code:
 using namespace std;
   
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long ll;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
-typedef vector<pii> vpi;
   
 #define pb push_back
-#define all(x) begin(x), end(x)
-  
-#define endl '\n'
   
 void setIO(const string& name) {
     freopen((name + ".in").c_str(), "r", stdin);
