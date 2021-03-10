@@ -19,4 +19,4 @@ Here is my C++ Solution (7 / 10):
 
 Here is my Java Solution (8 / 10):
 
-@import "BovineGenomics.java"
+@import "bovineGenomics.java"
