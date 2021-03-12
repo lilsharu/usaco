@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(socialDistancing "Social Distancing/socialDistancing.cpp")
 add_executable(loanRepayment "Loan Repayment/loanRepayment.cpp")
+add_executable(cowpatibility Cowpatibility/cowpatibility.cpp)
