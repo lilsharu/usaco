@@ -20,6 +20,8 @@ With these observations, we can come up with the following solution:
 3. Sort all the exit nodes by distance from Bessie (A node closer to Bessie can block out a node farther from it if it shares a common ancestor, so this avoids double counting and extra complexity).
 4. For each exit node, find the farthest anscestor visitable (simply take the the floor of the distance divided by 2), add one to the total, and remove all other children (including exit nodes) from consideration.
   
+In other words, one barn can be blocked by multiple exits. However, if a farmer from one exit can block the barn before a farmer from another exit, and there is no other farm for the other farmer to block, that exit is meaningless. Therefore, the best barn to block (the one with the most potential exits covered) is the one that leads to the Farmer just blocking Bessie's potential position (If Bessie reaches the barn in 4 seconds and the farmer reaches the barn in 3 or 4 seconds). From this, any other exit that would have blocked that barn can be dropped from consideration.
+  
 Here is my implementation of this:
   
 ```cpp
@@ -27,7 +29,7 @@ Here is my implementation of this:
 using namespace std;
   
 typedef vector<int> vi;
- 
+
 #define pb push_back
 #define all(x) begin(x), end(x)
   
