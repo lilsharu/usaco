@@ -2,6 +2,7 @@
     "files.associations": {
         "*.html": "html",
         "*.txt": "plaintext",
+        "*.mdd": "markdown",
         "type_traits": "cpp",
         "*.tcc": "cpp",
         "regex": "cpp",
@@ -9,6 +10,9 @@
         "bitset": "cpp",
         "forward_list": "cpp",
         "fstream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "cstdlib": "cpp",
+        "algorithm": "cpp",
+        "functional": "cpp"
     }
 }

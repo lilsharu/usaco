@@ -1,0 +1,18 @@
+{
+	"files.associations": {
+		"*.html": "html",
+		"*.txt": "plaintext",
+		"*.mdd": "markdown",
+		"*.tcc": "cpp",
+		"bitset": "cpp",
+		"chrono": "cpp",
+		"condition_variable": "cpp",
+		"algorithm": "cpp",
+		"istream": "cpp",
+		"limits": "cpp",
+		"mutex": "cpp",
+		"shared_mutex": "cpp",
+		"streambuf": "cpp",
+		"thread": "cpp"
+	}
+}
