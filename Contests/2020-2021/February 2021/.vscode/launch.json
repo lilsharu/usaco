@@ -4,6 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    {
+        "type": "java",
+        "name": "Launch with Arguments Prompt",
+        "request": "launch",
+        "mainClass": "",
+        "args": "${command:SpecifyProgramArgs}"
+    },
         {
             "name": "g++.exe - Build and debug active file",
             "type": "cppdbg",
