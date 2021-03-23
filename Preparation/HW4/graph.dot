@@ -1,0 +1,23 @@
+graph x {
+	r -- t
+	c -- j
+	b -- j
+	l -- b
+	t -- j
+	f -- m
+	v -- z
+	d -- q
+	u -- t
+	u -- w
+	m -- g
+	q -- r
+	r -- v
+	x -- w
+	a -- c
+	o -- w
+	b -- m
+	i -- h
+	g -- d
+	s -- j
+	n -- t
+}
