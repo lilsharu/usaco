@@ -179,11 +179,23 @@ if (v[3] == a + b + c) {
 }
 // Skip A + C, B + C, or A + B + C
 {
-    int b = v[0];
-    int c = v[1];
-    int a = v[2] - b;
-    if (v[3] == a + b + c || v[3] == b + c || v[3] == a + c) {
-        s.insert(combo(a, b, c));
+    // C is Smaller
+    {
+        int b = v[0];
+        int c = v[1];
+        int a = v[2] - b;
+        if (v[3] == a + b + c || v[3] == b + c || v[3] == a + c) {
+            s.insert(combo(a, b, c));
+        }
+    }
+    // A + B is Smaller
+    {
+        int b = v[0];
+        int c = v[2];
+        int a = v[1] - b;
+        if (v[3] == a + b + c || v[3] == b + c || v[3] == a + c) {
+            s.insert(combo(a, b, c));
+        }
     }
 }
 }
@@ -207,9 +219,9 @@ if (v[3] == a + b + c) {
 }
 // Skip B + C || A + B + C
 {
-    int b = v[1] - a;
-    int c = v[2] - a;
-    if (v[3] == a + b + c) {
+    int b = v[1] - a; // A + B
+    int c = v[2] - a; // A + C
+    if (v[3] == a + b + c || v[3] == b + c) {
         s.insert(combo(a, b, c));
     }
 }
